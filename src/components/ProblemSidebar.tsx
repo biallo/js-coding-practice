@@ -1,4 +1,4 @@
-import type { PracticeProblem } from '../data/problemTypes'
+import type { PracticeProblem } from '../data/problemTypes';
 
 type ProblemSidebarProps = {
   problems: PracticeProblem[]
@@ -11,7 +11,7 @@ export function ProblemSidebar({
   selectedId,
   onSelect,
 }: ProblemSidebarProps) {
-  const appIconUrl = `${import.meta.env.BASE_URL}icons/icon-192.png`
+  const appIconUrl = `${import.meta.env.BASE_URL}icons/icon-192.png`;
 
   return (
     <aside className="problem-sidebar" aria-label="Problem list">
@@ -55,5 +55,5 @@ export function ProblemSidebar({
         ))}
       </select>
     </aside>
-  )
+  );
 }

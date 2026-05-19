@@ -1,20 +1,20 @@
-import type { ReactNode } from 'react'
+import type { ReactNode } from 'react';
 
 type RichTextProps = {
   text: string
 }
 
 export function InlineText({ text }: RichTextProps) {
-  return renderInlineCode(text)
+  return renderInlineCode(text);
 }
 
 export function RichText({ text }: RichTextProps) {
-  const paragraphs = text.split(/\n{2,}/)
+  const paragraphs = text.split(/\n{2,}/);
 
   return (
     <div className="rich-text">
       {paragraphs.map((paragraph, paragraphIndex) => {
-        const lines = paragraph.split('\n')
+        const lines = paragraph.split('\n');
 
         return (
           <p key={`${paragraph}-${paragraphIndex}`}>
@@ -27,10 +27,10 @@ export function RichText({ text }: RichTextProps) {
               </FragmentWithBreak>
             ))}
           </p>
-        )
+        );
       })}
     </div>
-  )
+  );
 }
 
 function FragmentWithBreak({
@@ -45,11 +45,11 @@ function FragmentWithBreak({
       {children}
       {!isLast && <br />}
     </>
-  )
+  );
 }
 
 function renderInlineCode(text: string) {
-  const parts = text.split(/(`[^`]+`)/g)
+  const parts = text.split(/(`[^`]+`)/g);
 
   return parts.map((part, index) => {
     if (part.startsWith('`') && part.endsWith('`')) {
@@ -57,9 +57,9 @@ function renderInlineCode(text: string) {
         <code className="inline-code" key={`${part}-${index}`}>
           {part.slice(1, -1)}
         </code>
-      )
+      );
     }
 
-    return part
-  })
+    return part;
+  });
 }

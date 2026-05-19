@@ -1,8 +1,8 @@
-import { PracticeApp } from './components/PracticeApp'
-import './App.css'
+import { PracticeApp } from './components/PracticeApp';
+import './App.css';
 
 function App() {
-  return <PracticeApp />
+  return <PracticeApp />;
 }
 
-export default App
+export default App;

@@ -1,15 +1,19 @@
-function throttle<TArgs extends unknown[]>(
-  fn: (...args: TArgs) => void,
-  delay: number,
-) {
-  let lastCallTime = 0
+export default function throttle(
+  func: Function,
+  wait: number = 0
+): Function {
+  let timeoutID: ReturnType<typeof setTimeout> | null = null;
 
-  return function throttled(this: unknown, ...args: TArgs) {
-    const now = Date.now()
-
-    if (now - lastCallTime >= delay) {
-      fn.apply(this, args)
-      lastCallTime = now
+  return function (this: any, ...args: any[]) {
+    const context = this;
+    if (timeoutID !== null) {
+      return;
     }
-  }
+
+    func.apply(context, args);
+
+    timeoutID = setTimeout(() => {
+      timeoutID = null;
+    }, wait);
+  };
 }

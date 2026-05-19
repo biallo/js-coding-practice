@@ -1,12 +1,16 @@
-function throttle(fn, delay) {
-  let lastCallTime = 0
+export default function throttle(func, wait = 0) {
+  let timeoutID = null;
 
   return function throttled(...args) {
-    const now = Date.now()
-
-    if (now - lastCallTime >= delay) {
-      fn.apply(this, args)
-      lastCallTime = now
+    const context = this;
+    if (timeoutID !== null) {
+      return;
     }
-  }
+
+    func.apply(context, args);
+
+    timeoutID = setTimeout(() => {
+      timeoutID = null;
+    }, wait);
+  };
 }

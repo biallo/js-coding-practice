@@ -1,17 +1,16 @@
-function debounce<TArgs extends unknown[]>(
-  fn: (...args: TArgs) => void,
-  delay: number,
-) {
-  let timerId: ReturnType<typeof setTimeout> | null = null
+export default function debounce(
+  func: Function,
+  wait: number = 0
+): Function {
+  let timeoutID: ReturnType<typeof setTimeout> | null = null;
 
-  return function debounced(this: unknown, ...args: TArgs) {
-    if (timerId !== null) {
-      clearTimeout(timerId)
-    }
+  return function (this: any, ...args: any[]) {
+    const context = this;
+    clearTimeout(timeoutID ?? undefined);
 
-    timerId = setTimeout(() => {
-      fn.apply(this, args)
-      timerId = null
-    }, delay)
-  }
+    timeoutID = setTimeout(function () {
+      timeoutID = null;
+      func.apply(context, args);
+    }, wait);
+  };
 }

@@ -1,14 +1,13 @@
-function debounce(fn, delay) {
-  let timerId = null
+export default function debounce(func, wait = 0) {
+  let timeoutID = null;
 
-  return function debounced(...args) {
-    if (timerId !== null) {
-      clearTimeout(timerId)
-    }
+  return function (...args) {
+    const context = this;
+    clearTimeout(timeoutID);
 
-    timerId = setTimeout(() => {
-      fn.apply(this, args)
-      timerId = null
-    }, delay)
-  }
+    timeoutID = setTimeout(() => {
+      timeoutID = null;
+      func.apply(context, args);
+    }, wait);
+  };
 }

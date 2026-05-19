@@ -1,7 +1,7 @@
-import { useMemo, useState } from 'react'
-import Prism from 'prismjs'
-import 'prismjs/components/prism-typescript'
-import type { PracticeProblem } from '../data/problemTypes'
+import { useMemo, useState } from 'react';
+import Prism from 'prismjs';
+import 'prismjs/components/prism-typescript';
+import type { PracticeProblem } from '../data/problemTypes';
 
 type CodeLanguage = keyof PracticeProblem['solutions']
 
@@ -12,7 +12,7 @@ const tabs: Array<{
 }> = [
   { label: 'JavaScript', language: 'javascript', extension: '.js' },
   { label: 'TypeScript', language: 'typescript', extension: '.ts' },
-]
+];
 
 type CodeTabsProps = {
   solutions: PracticeProblem['solutions']
@@ -20,18 +20,18 @@ type CodeTabsProps = {
 
 export function CodeTabs({ solutions }: CodeTabsProps) {
   const [activeLanguage, setActiveLanguage] =
-    useState<CodeLanguage>('javascript')
-  const activeTab = tabs.find((tab) => tab.language === activeLanguage) ?? tabs[0]
-  const code = solutions[activeLanguage]
+    useState<CodeLanguage>('javascript');
+  const activeTab = tabs.find((tab) => tab.language === activeLanguage) ?? tabs[0];
+  const code = solutions[activeLanguage];
 
   const highlightedCode = useMemo(() => {
     const grammar =
       activeLanguage === 'typescript'
         ? Prism.languages.typescript
-        : Prism.languages.javascript
+        : Prism.languages.javascript;
 
-    return Prism.highlight(code, grammar, activeLanguage)
-  }, [activeLanguage, code])
+    return Prism.highlight(code, grammar, activeLanguage);
+  }, [activeLanguage, code]);
 
   return (
     <section className="solution-section" aria-label="Solution code">
@@ -63,5 +63,5 @@ export function CodeTabs({ solutions }: CodeTabsProps) {
         </pre>
       </article>
     </section>
-  )
+  );
 }

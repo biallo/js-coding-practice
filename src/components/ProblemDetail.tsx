@@ -1,6 +1,6 @@
-import type { PracticeProblem } from '../data/problemTypes'
-import { CodeTabs } from './CodeTabs'
-import { InlineText, RichText } from './RichText'
+import type { PracticeProblem } from '../data/problemTypes';
+import { CodeTabs } from './CodeTabs';
+import { InlineText, RichText } from './RichText';
 
 type ProblemDetailProps = {
   problem: PracticeProblem
@@ -32,5 +32,5 @@ export function ProblemDetail({ problem }: ProblemDetailProps) {
 
       <CodeTabs solutions={problem.solutions} />
     </section>
-  )
+  );
 }

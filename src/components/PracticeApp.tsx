@@ -1,19 +1,19 @@
-import { useMemo, useState } from 'react'
-import { problems } from '../data/problems'
-import { EmptyState } from './EmptyState'
-import { ProblemDetail } from './ProblemDetail'
-import { ProblemSidebar } from './ProblemSidebar'
+import { useMemo, useState } from 'react';
+import { problems } from '../data/problems';
+import { EmptyState } from './EmptyState';
+import { ProblemDetail } from './ProblemDetail';
+import { ProblemSidebar } from './ProblemSidebar';
 
 export function PracticeApp() {
-  const [selectedId, setSelectedId] = useState(problems[0]?.id ?? '')
+  const [selectedId, setSelectedId] = useState(problems[0]?.id ?? '');
 
   const selectedProblem = useMemo(
     () => problems.find((problem) => problem.id === selectedId) ?? problems[0],
     [selectedId],
-  )
+  );
 
   if (!selectedProblem) {
-    return <EmptyState />
+    return <EmptyState />;
   }
 
   return (
@@ -25,5 +25,5 @@ export function PracticeApp() {
       />
       <ProblemDetail problem={selectedProblem} />
     </main>
-  )
+  );
 }
