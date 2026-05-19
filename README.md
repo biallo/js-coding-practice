@@ -21,11 +21,19 @@ npm run build
 
 ## Adding Problems
 
-Each problem lives in its own file under `src/data/problems`. To add a new one:
+Each problem lives in its own folder under `src/data/problems`. To add a new one:
 
-1. Create a new file such as `src/data/problems/debounce.ts`.
-2. Export a `PracticeProblem` object from that file.
-3. Add it to the array in `src/data/problems/index.ts`.
+1. Create a new folder such as `src/data/problems/debounce`.
+2. Add `index.ts`, `solution.js`, and `solution.ts` inside that folder.
+3. Import those solutions with Vite raw imports:
+
+```ts
+import javascriptSolution from './solution.js?raw'
+import typescriptSolution from './solution.ts?raw'
+```
+
+4. Export a `PracticeProblem` object from the problem folder's `index.ts`.
+5. Add it to the array in `src/data/problems/index.ts`.
 
 Problem fields:
 
@@ -35,8 +43,8 @@ Problem fields:
 - `difficulty`: `Easy`, `Medium`, or `Hard`.
 - `description`: Prompt description.
 - `points`: Requirements, edge cases, or interview notes.
-- `solutions.javascript`: JavaScript solution.
-- `solutions.typescript`: TypeScript solution.
+- `solutions.javascript`: Raw-imported JavaScript solution.
+- `solutions.typescript`: Raw-imported TypeScript solution.
 
 Prompt formatting:
 

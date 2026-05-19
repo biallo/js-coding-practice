@@ -1,4 +1,6 @@
-import type { PracticeProblem } from '../problemTypes'
+import type { PracticeProblem } from '../../problemTypes'
+import javascriptSolution from './solution.js?raw'
+import typescriptSolution from './solution.ts?raw'
 
 export const debounceProblem: PracticeProblem = {
   id: 'debounce',
@@ -12,36 +14,7 @@ export const debounceProblem: PracticeProblem = {
     '(Function): Returns the debounced function.',
   ],
   solutions: {
-    javascript: `function debounce(fn, delay) {
-  let timerId = null
-
-  return function debounced(...args) {
-    if (timerId !== null) {
-      clearTimeout(timerId)
-    }
-
-    timerId = setTimeout(() => {
-      fn.apply(this, args)
-      timerId = null
-    }, delay)
-  }
-}`,
-    typescript: `function debounce<TArgs extends unknown[]>(
-  fn: (...args: TArgs) => void,
-  delay: number,
-) {
-  let timerId: ReturnType<typeof setTimeout> | null = null
-
-  return function debounced(this: unknown, ...args: TArgs) {
-    if (timerId !== null) {
-      clearTimeout(timerId)
-    }
-
-    timerId = setTimeout(() => {
-      fn.apply(this, args)
-      timerId = null
-    }, delay)
-  }
-}`,
+    javascript: javascriptSolution.trim(),
+    typescript: typescriptSolution.trim(),
   },
 }
