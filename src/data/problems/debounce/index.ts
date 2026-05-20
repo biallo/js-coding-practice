@@ -13,8 +13,11 @@ export const debounceProblem: PracticeProblem = {
     '`wait` (number): The number of milliseconds to wait after the latest call.',
     '(Function): Returns the debounced function.',
   ],
-  solutions: {
-    javascript: javascriptSolution.trim(),
-    typescript: typescriptSolution.trim(),
-  },
+  solutions: [
+    {
+      title: 'Debounce',
+      javascript: javascriptSolution.trim(),
+      typescript: typescriptSolution.trim(),
+    },
+  ],
 };

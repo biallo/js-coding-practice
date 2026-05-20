@@ -13,8 +13,11 @@ export const throttleProblem: PracticeProblem = {
     '`wait` (number): The number of milliseconds in each throttling window.',
     '(Function): Returns the throttled function.',
   ],
-  solutions: {
-    javascript: javascriptSolution.trim(),
-    typescript: typescriptSolution.trim(),
-  },
+  solutions: [
+    {
+      title: 'Throttle',
+      javascript: javascriptSolution.trim(),
+      typescript: typescriptSolution.trim(),
+    },
+  ],
 };

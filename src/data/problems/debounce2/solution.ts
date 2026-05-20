@@ -9,6 +9,7 @@ export default function debounce<TArgs extends unknown[]>(
   wait: number = 0,
 ): DebouncedFunction<TArgs> {
   let timeoutID: ReturnType<typeof setTimeout> | null = null;
+  // Track the latest call so delayed execution and flush use fresh values.
   let lastThis: unknown;
   let lastArgs: TArgs | null = null;
 
@@ -30,6 +31,7 @@ export default function debounce<TArgs extends unknown[]>(
   }
 
   function debounced(this: unknown, ...args: TArgs) {
+    // Each call replaces the pending invocation with the latest context/args.
     lastThis = this;
     lastArgs = args;
     clearPending();
@@ -40,16 +42,18 @@ export default function debounce<TArgs extends unknown[]>(
     }, wait);
   }
 
-  debounced.cancel = function cancel() {
+  debounced.cancel = function () {
+    // Cancel both the timer and the saved invocation data.
     clearPending();
     lastArgs = null;
   };
 
-  debounced.flush = function flush() {
+  debounced.flush = function () {
     if (timeoutID === null) {
       return;
     }
 
+    // Run the pending invocation immediately instead of waiting for the timer.
     clearPending();
     invoke();
   };

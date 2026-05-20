@@ -6,7 +6,13 @@ import tseslint from 'typescript-eslint';
 import { defineConfig, globalIgnores } from 'eslint/config';
 
 export default defineConfig([
-  globalIgnores(['dist', 'src/data/problems/**/solution.ts', 'src/data/problems/**/solution.js']),
+  globalIgnores([
+    'dist',
+    'src/data/problems/**/solution.ts',
+    'src/data/problems/**/solution.js',
+    'src/data/problems/**/solutions/**/*.ts',
+    'src/data/problems/**/solutions/**/*.js',
+  ]),
   {
     files: ['**/*.{js,jsx,ts,tsx}'],
     rules: {

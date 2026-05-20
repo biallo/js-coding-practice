@@ -1,5 +1,6 @@
 export default function debounce(func, wait = 0) {
   let timeoutID = null;
+  // Track the latest call so delayed execution and flush use fresh values.
   let lastThis;
   let lastArgs = null;
 
@@ -21,6 +22,7 @@ export default function debounce(func, wait = 0) {
   }
 
   function debounced(...args) {
+    // Each call replaces the pending invocation with the latest context/args.
     lastThis = this;
     lastArgs = args;
     clearPending();
@@ -31,16 +33,18 @@ export default function debounce(func, wait = 0) {
     }, wait);
   }
 
-  debounced.cancel = function cancel() {
+  debounced.cancel = function () {
+    // Cancel both the timer and the saved invocation data.
     clearPending();
     lastArgs = null;
   };
 
-  debounced.flush = function flush() {
+  debounced.flush = function () {
     if (timeoutID === null) {
       return;
     }
 
+    // Run the pending invocation immediately instead of waiting for the timer.
     clearPending();
     invoke();
   };

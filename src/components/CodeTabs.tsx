@@ -1,11 +1,11 @@
 import { useMemo, useState } from 'react';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-typescript';
-import type { PracticeProblem } from '../data/problemTypes';
+import type { PracticeProblem, SolutionCode } from '../data/problemTypes';
 
-type CodeLanguage = keyof PracticeProblem['solutions']
+type CodeLanguage = keyof SolutionCode
 
-const tabs: Array<{
+const languageTabs: Array<{
   label: string
   language: CodeLanguage
   extension: string
@@ -19,10 +19,12 @@ type CodeTabsProps = {
 }
 
 export function CodeTabs({ solutions }: CodeTabsProps) {
+  const [activeSolutionIndex, setActiveSolutionIndex] = useState(0);
   const [activeLanguage, setActiveLanguage] =
     useState<CodeLanguage>('javascript');
-  const activeTab = tabs.find((tab) => tab.language === activeLanguage) ?? tabs[0];
-  const code = solutions[activeLanguage];
+  const activeSolution = solutions[activeSolutionIndex] ?? solutions[0];
+  const code = activeSolution[activeLanguage];
+  const codeTitle = activeSolution.title;
 
   const highlightedCode = useMemo(() => {
     const grammar =
@@ -35,25 +37,46 @@ export function CodeTabs({ solutions }: CodeTabsProps) {
 
   return (
     <section className="solution-section" aria-label="Solution code">
-      <div className="code-tabs" role="tablist" aria-label="Solution language">
-        {tabs.map((tab) => (
-          <button
-            aria-selected={tab.language === activeLanguage}
-            className={tab.language === activeLanguage ? 'active' : ''}
-            key={tab.language}
-            onClick={() => setActiveLanguage(tab.language)}
-            role="tab"
-            type="button"
-          >
-            {tab.label}
-          </button>
-        ))}
-      </div>
+      {solutions.length > 1 && (
+        <div className="approach-selector">
+          <div className="approach-header">
+            <h3>Solution approaches</h3>
+          </div>
+
+          <div className="approach-tabs" role="tablist" aria-label="Solution approach">
+            {solutions.map((solution, index) => (
+              <button
+                aria-selected={index === activeSolutionIndex}
+                className={index === activeSolutionIndex ? 'active' : ''}
+                key={`${solution.title}-${index}`}
+                onClick={() => setActiveSolutionIndex(index)}
+                role="tab"
+                type="button"
+              >
+                {solution.title}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
 
       <article className="code-panel">
         <div className="code-title">
-          <h3>{activeTab.label}</h3>
-          <span>{activeTab.extension}</span>
+          <h3>{codeTitle}</h3>
+          <div className="title-language-tabs" role="tablist" aria-label="Solution language">
+            {languageTabs.map((tab) => (
+              <button
+                aria-selected={tab.language === activeLanguage}
+                className={tab.language === activeLanguage ? 'active' : ''}
+                key={tab.language}
+                onClick={() => setActiveLanguage(tab.language)}
+                role="tab"
+                type="button"
+              >
+                <span>{tab.label}</span>
+              </button>
+            ))}
+          </div>
         </div>
         <pre>
           <code
