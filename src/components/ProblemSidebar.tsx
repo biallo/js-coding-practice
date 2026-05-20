@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import type { PracticeProblem } from '../data/problemTypes';
 
 type ProblemSidebarProps = {
@@ -11,7 +12,15 @@ export function ProblemSidebar({
   selectedId,
   onSelect,
 }: ProblemSidebarProps) {
+  const selectedButtonRef = useRef<HTMLButtonElement>(null);
   const appIconUrl = `${import.meta.env.BASE_URL}icons/icon-192.png`;
+
+  useEffect(() => {
+    selectedButtonRef.current?.scrollIntoView({
+      block: 'nearest',
+      inline: 'nearest',
+    });
+  }, [selectedId]);
 
   return (
     <aside className="problem-sidebar" aria-label="Problem list">
@@ -29,6 +38,7 @@ export function ProblemSidebar({
             className={problem.id === selectedId ? 'active' : ''}
             key={problem.id}
             onClick={() => onSelect(problem.id)}
+            ref={problem.id === selectedId ? selectedButtonRef : undefined}
             type="button"
           >
             <span className="problem-index">
