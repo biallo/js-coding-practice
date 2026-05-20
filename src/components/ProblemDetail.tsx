@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import type { PracticeProblem } from '../data/problemTypes';
 import { CodeTabs } from './CodeTabs';
 import { InlineText, RichText } from './RichText';
@@ -7,8 +8,14 @@ type ProblemDetailProps = {
 }
 
 export function ProblemDetail({ problem }: ProblemDetailProps) {
+  const detailRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    detailRef.current?.scrollTo({ top: 0 });
+  }, [problem.id]);
+
   return (
-    <section className="problem-detail scroll-area">
+    <section className="problem-detail scroll-area" ref={detailRef}>
       <header className="detail-header">
         <h2>{problem.title}</h2>
         <span className="difficulty">{problem.difficulty}</span>
@@ -30,7 +37,7 @@ export function ProblemDetail({ problem }: ProblemDetailProps) {
         </div>
       </section>
 
-      <CodeTabs solutions={problem.solutions} />
+      <CodeTabs key={problem.id} solutions={problem.solutions} />
     </section>
   );
 }
