@@ -13,7 +13,7 @@
 .detail-header {
   display: flex;
   gap: 20px;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid var(--border);
   padding-bottom: 24px;
@@ -28,12 +28,26 @@
 
 .difficulty {
   flex: 0 0 auto;
-  border: 1px solid var(--border-strong);
+  border: 1px solid currentColor;
   border-radius: 999px;
-  color: var(--text-strong);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   padding: 6px 12px;
+}
+
+.difficulty.difficulty-easy {
+  background: #ecfdf3;
+  color: #26af76;
+}
+
+.difficulty.difficulty-medium {
+  background: #fffaeb;
+  color: #edaf1e;
+}
+
+.difficulty.difficulty-hard {
+  background: #fef3f2;
+  color: #fa6054;
 }
 
 .prompt-section {

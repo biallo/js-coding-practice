@@ -46,7 +46,9 @@ export function ProblemSidebar({
             </span>
             <span>
               <strong>{problem.title}</strong>
-              <small>{problem.difficulty}</small>
+              <small className={`difficulty-text difficulty-${problem.difficulty.toLowerCase()}`}>
+                {problem.difficulty}
+              </small>
             </span>
           </button>
         ))}

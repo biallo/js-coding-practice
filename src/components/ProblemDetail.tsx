@@ -9,6 +9,7 @@ type ProblemDetailProps = {
 
 export function ProblemDetail({ problem }: ProblemDetailProps) {
   const detailRef = useRef<HTMLElement>(null);
+  const difficultyClass = `difficulty difficulty-${problem.difficulty.toLowerCase()}`;
 
   useEffect(() => {
     detailRef.current?.scrollTo({ top: 0 });
@@ -18,7 +19,7 @@ export function ProblemDetail({ problem }: ProblemDetailProps) {
     <section className="problem-detail scroll-area" ref={detailRef}>
       <header className="detail-header">
         <h2>{problem.title}</h2>
-        <span className="difficulty">{problem.difficulty}</span>
+        <span className={difficultyClass}>{problem.difficulty}</span>
       </header>
 
       <section className="prompt-section" aria-labelledby="prompt-title">

@@ -52,8 +52,8 @@
 
 .problem-list button {
   display: grid;
-  grid-template-columns: 26px 1fr;
-  gap: 4px;
+  grid-template-columns: 28px 1fr;
+  gap: 5px;
   width: 100%;
   min-height: 68px;
   align-items: center;
@@ -81,7 +81,7 @@
 .problem-index {
   color: var(--accent);
   font-family: var(--mono);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
 }
 
@@ -98,8 +98,23 @@
 
 .problem-list small {
   margin-top: 4px;
-  color: var(--muted);
-  font-size: 12px;
+  font-size: 11px;
+}
+
+.problem-list .difficulty-text {
+  font-weight: 700;
+}
+
+.problem-list .difficulty-easy {
+  color: #26af76;
+}
+
+.problem-list .difficulty-medium {
+  color: #edaf1e;
+}
+
+.problem-list .difficulty-hard {
+  color: #fa6054;
 }
 
 .problem-select-label,
