@@ -1,7 +1,9 @@
+type Fn = (...args: number[]) => void
+
 export default function debounce(
-  func: Function,
+  func: Fn,
   wait: number = 0
-): Function {
+): Fn {
   let timeoutID: ReturnType<typeof setTimeout> | null = null;
 
   return function (this: any, ...args: any[]) {

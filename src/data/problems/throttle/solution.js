@@ -1,7 +1,7 @@
 export default function throttle(func, wait = 0) {
   let timeoutID = null;
 
-  return function throttled(...args) {
+  return function (...args) {
     const context = this;
     if (timeoutID !== null) {
       return;
