@@ -13,8 +13,12 @@ import { eventEmitterProblem } from './event-emitter';
 import { eventEmitter2Problem } from './event-emitter2';
 import { getElementsByStyleProblem } from './get-elements-by-style';
 import { deepCloneProblem } from './deep-clone';
-import { deepEqualProblem } from './deep-equal';
 import { listFormatProblem } from './list-format';
+import { deepEqualProblem } from './deep-equal';
+import { undoRedoManagerProblem } from './undo-redo-manager';
+import { undoRedoManager2Problem } from './undo-redo-manager2';
+import { classVarianceAuthorityProblem } from './class-variance-authority';
+import { templateEngineProblem } from './template-engine';
 
 export const problems = [
   arrayFilterProblem,
@@ -34,4 +38,8 @@ export const problems = [
   deepCloneProblem,
   listFormatProblem,
   deepEqualProblem,
+  undoRedoManagerProblem,
+  undoRedoManager2Problem,
+  classVarianceAuthorityProblem,
+  templateEngineProblem,
 ];

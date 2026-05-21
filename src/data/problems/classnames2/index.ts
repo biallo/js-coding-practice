@@ -7,7 +7,7 @@ import setTypescriptSolution from './solutions/set.ts?raw';
 export const classnames2Problem: PracticeProblem = {
   id: 'classnames2',
   title: 'Classnames II',
-  difficulty: 'Medium',
+  difficulty: 'Hard',
   description:
     'Implement a `classNames` utility that conditionally joins CSS class names together, while also handling de-duplication and function values.\n\nThis is an advanced version of the regular `classNames` problem. The function should accept any number of arguments. Each argument can be a string, number, object, array, function, or falsey value. Strings and numbers add a class. Object keys add a class when their values are truthy and remove that class when their values are falsey. Arrays should be processed recursively. Function values should be called and their return values should be processed by the same rules.\n\nThe result should contain each class name at most once. If a class is added and later turned off by an object entry such as `{ foo: false }`, it should not appear in the final string.\n\nExamples:\n`classNames(\'foo\', \'foo\', \'bar\')` returns `\'foo bar\'`.\n`classNames(\'foo\', { foo: false, bar: true })` returns `\'bar\'`.\n`classNames(\'a\', [\'b\', { c: true }], () => \'d\')` returns `\'a b c d\'`.\n`classNames(() => [\'foo\', { bar: true }])` returns `\'foo bar\'`.',
   points: [
