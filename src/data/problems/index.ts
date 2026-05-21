@@ -33,6 +33,10 @@ import { middlewaresProblem } from './middlewares';
 import { lowestHidingElementProblem } from './lowest-hiding-element';
 import { dataMergingProblem } from './data-merging';
 import { countByProblem } from './count-by';
+import { jsonStringifyProblem } from './json-stringify';
+import { htmlSerializerProblem } from './html-serializer';
+import { curryProblem } from './curry';
+import { getElementsByClassNameProblem } from './get-elements-by-class-name';
 
 export const problems = [
   arrayFilterProblem,
@@ -70,4 +74,8 @@ export const problems = [
   lowestHidingElementProblem,
   dataMergingProblem,
   countByProblem,
+  jsonStringifyProblem,
+  htmlSerializerProblem,
+  curryProblem,
+  getElementsByClassNameProblem,
 ];
