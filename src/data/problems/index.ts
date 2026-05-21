@@ -37,6 +37,10 @@ import { jsonStringifyProblem } from './json-stringify';
 import { htmlSerializerProblem } from './html-serializer';
 import { curryProblem } from './curry';
 import { getElementsByClassNameProblem } from './get-elements-by-class-name';
+import { squashObjectProblem } from './squash-object';
+import { memoizeProblem } from './memoize';
+import { promisifyProblem } from './promisify';
+import { deepOmitProblem } from './deep-omit';
 
 export const problems = [
   arrayFilterProblem,
@@ -78,4 +82,8 @@ export const problems = [
   htmlSerializerProblem,
   curryProblem,
   getElementsByClassNameProblem,
+  squashObjectProblem,
+  memoizeProblem,
+  promisifyProblem,
+  deepOmitProblem,
 ];
