@@ -35,12 +35,15 @@ import { dataMergingProblem } from './data-merging';
 import { countByProblem } from './count-by';
 import { jsonStringifyProblem } from './json-stringify';
 import { htmlSerializerProblem } from './html-serializer';
+import { htmlSanitizerProblem } from './html-sanitizer';
 import { curryProblem } from './curry';
 import { getElementsByClassNameProblem } from './get-elements-by-class-name';
 import { squashObjectProblem } from './squash-object';
 import { memoizeProblem } from './memoize';
 import { promisifyProblem } from './promisify';
 import { deepOmitProblem } from './deep-omit';
+import { testRunnerProblem } from './test-runner';
+import { testRunner2Problem } from './test-runner2';
 
 export const problems = [
   arrayFilterProblem,
@@ -80,10 +83,13 @@ export const problems = [
   countByProblem,
   jsonStringifyProblem,
   htmlSerializerProblem,
+  htmlSanitizerProblem,
   curryProblem,
   getElementsByClassNameProblem,
   squashObjectProblem,
   memoizeProblem,
   promisifyProblem,
   deepOmitProblem,
+  testRunnerProblem,
+  testRunner2Problem,
 ];
