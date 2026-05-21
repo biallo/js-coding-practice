@@ -2,6 +2,12 @@ import { arrayFilterProblem } from './array-filter';
 import { readingOrderProblem } from './reading-order';
 import { typeUtilitiesProblem } from './type-utilities';
 import { typeUtilities2Problem } from './type-utilities-2';
+import { cycleProblem } from './cycle';
+import { arrayReduceProblem } from './array-reduce';
+import { minByProblem } from './min-by';
+import { functionCallProblem } from './function-call';
+import { meanProblem } from './mean';
+import { makeCounterProblem } from './make-counter';
 import { debounceProblem } from './debounce';
 import { debounce2Problem } from './debounce2';
 import { throttleProblem } from './throttle';
@@ -33,6 +39,12 @@ export const problems = [
   readingOrderProblem,
   typeUtilitiesProblem,
   typeUtilities2Problem,
+  cycleProblem,
+  arrayReduceProblem,
+  minByProblem,
+  functionCallProblem,
+  meanProblem,
+  makeCounterProblem,
   debounceProblem,
   debounce2Problem,
   throttleProblem,
