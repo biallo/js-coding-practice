@@ -19,6 +19,8 @@ import { undoRedoManagerProblem } from './undo-redo-manager';
 import { undoRedoManager2Problem } from './undo-redo-manager2';
 import { classVarianceAuthorityProblem } from './class-variance-authority';
 import { templateEngineProblem } from './template-engine';
+import { rateLimiterProblem } from './rate-limiter';
+import { middlewaresProblem } from './middlewares';
 
 export const problems = [
   arrayFilterProblem,
@@ -42,4 +44,6 @@ export const problems = [
   undoRedoManager2Problem,
   classVarianceAuthorityProblem,
   templateEngineProblem,
+  rateLimiterProblem,
+  middlewaresProblem,
 ];
