@@ -40,6 +40,8 @@ import { curryProblem } from './curry';
 import { getElementsByClassNameProblem } from './get-elements-by-class-name';
 import { squashObjectProblem } from './squash-object';
 import { memoizeProblem } from './memoize';
+import { memoize2Problem } from './memoize2';
+import { memoize3Problem } from './memoize3';
 import { promisifyProblem } from './promisify';
 import { deepOmitProblem } from './deep-omit';
 import { testRunnerProblem } from './test-runner';
@@ -95,6 +97,8 @@ export const problems = [
   getElementsByClassNameProblem,
   squashObjectProblem,
   memoizeProblem,
+  memoize2Problem,
+  memoize3Problem,
   promisifyProblem,
   deepOmitProblem,
   testRunnerProblem,

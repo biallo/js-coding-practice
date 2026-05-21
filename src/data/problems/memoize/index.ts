@@ -1,34 +1,34 @@
 import type { PracticeProblem } from '../../problemTypes';
-import mapJavascriptSolution from './solutions/map.js?raw';
-import mapTypescriptSolution from './solutions/map.ts?raw';
-import objectJavascriptSolution from './solutions/object.js?raw';
-import objectTypescriptSolution from './solutions/object.ts?raw';
+import jsonKeyJavascriptSolution from './solutions/json-key.js?raw';
+import jsonKeyTypescriptSolution from './solutions/json-key.ts?raw';
+import nestedMapJavascriptSolution from './solutions/nested-map.js?raw';
+import nestedMapTypescriptSolution from './solutions/nested-map.ts?raw';
 
 export const memoizeProblem: PracticeProblem = {
   id: 'memoize',
-  title: 'Memoize',
+  title: 'memoize',
   difficulty: 'Medium',
   description:
-    'A memoize function is a higher-order function that takes a function and returns a memoized version of it. The memoized function caches expensive results and returns the cached result when it receives the same input again.\n\nImplement `memoize(func)`. You can assume `func` accepts only one argument, and that argument will be a string or number. The returned function should call `func` the first time it sees an input, store the result, and return the stored result on future calls with the same input. If the memoized function is used as a method, preserve its `this` value when calling `func`.\n\nExamples:\n`const memoizedDouble = memoize((n) => n * 2);`\n`memoizedDouble(5)` returns `10` and computes the result.\n`memoizedDouble(5)` returns `10` from cache.\n`memoizedDouble(10)` returns `20` and computes a new result.',
+    'Given a function `fn`, return a memoized version of that function.\n\nA memoized function should never call `fn` twice with the same inputs. Instead, it should return the cached value from the first call with that exact argument list.\n\nFor this problem, `fn` is one of three possible numeric functions: `sum(a, b)`, `fib(n)`, or `factorial(n)`. `sum` accepts two integers and returns `a + b`. `fib` accepts one integer and returns `1` when `n <= 1`, otherwise `fib(n - 1) + fib(n - 2)`. `factorial` accepts one integer and returns `1` when `n <= 1`, otherwise `factorial(n - 1) * n`.\n\nArgument order matters, so calls like `memoized(2, 3)` and `memoized(3, 2)` must use different cache entries. The returned function does not need to preserve `this`.\n\nExamples:\n`const memoizedSum = memoize((a, b) => a + b);`\n`memoizedSum(2, 2)` returns `4` and calls the original function.\n`memoizedSum(2, 2)` returns `4` from cache.\n`memoizedSum(1, 2)` returns `3` and calls the original function again.\n\n`const memoizedFactorial = memoize((n) => n <= 1 ? 1 : n * factorial(n - 1));`\n`memoizedFactorial(2)` returns `2`; a second call with `2` should return the cached value.',
   points: [
-    '`func` (Function): A single-argument function accepting a string or number.',
-    'Return a function with the same single-argument call shape.',
-    'Cache the result for each distinct input.',
-    'Return cached results without calling `func` again for repeated inputs.',
-    'Handle cached falsey values such as `0`, `false`, `null`, or `undefined` correctly.',
-    'Preserve `this` when the memoized function is called as an object method.',
+    '`fn` (Function): One of `sum`, `fib`, or `factorial`.',
+    'Return a function that accepts the same arguments as `fn`.',
+    'Cache results by the complete ordered argument list.',
+    'Do not call `fn` again for repeated calls with the same arguments.',
+    '`memoized(2, 3)` and `memoized(3, 2)` should be cached separately.',
+    'The returned function does not need to preserve `this`.',
     '(Function): Returns the memoized function.',
   ],
   solutions: [
     {
-      title: 'Map Cache',
-      javascript: mapJavascriptSolution.trim(),
-      typescript: mapTypescriptSolution.trim(),
+      title: 'JSON Key',
+      javascript: jsonKeyJavascriptSolution.trim(),
+      typescript: jsonKeyTypescriptSolution.trim(),
     },
     {
-      title: 'Object Cache',
-      javascript: objectJavascriptSolution.trim(),
-      typescript: objectTypescriptSolution.trim(),
+      title: 'Nested Map',
+      javascript: nestedMapJavascriptSolution.trim(),
+      typescript: nestedMapTypescriptSolution.trim(),
     },
   ],
 };
