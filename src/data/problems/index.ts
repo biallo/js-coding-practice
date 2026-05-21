@@ -12,6 +12,19 @@ import { meanProblem } from './mean';
 import { makeCounterProblem } from './make-counter';
 import { makeCounter2Problem } from './make-counter2';
 import { sleepProblem } from './sleep';
+import { functionCompositionProblem } from './function-composition';
+import { isObjectEmptyProblem } from './is-object-empty';
+import { calculatorWithMethodChainingProblem } from './calculator-with-method-chaining';
+import { intervalCancellationProblem } from './interval-cancellation';
+import { sortByProblem } from './sort-by';
+import { addTwoPromisesProblem } from './add-two-promises';
+import { timeoutCancellationProblem } from './timeout-cancellation';
+import { returnLengthOfArgumentsPassedProblem } from './return-length-of-arguments-passed';
+import { arrayWrapperProblem } from './array-wrapper';
+import { chunkArrayProblem } from './chunk-array';
+import { allowOneFunctionCallProblem } from './allow-one-function-call';
+import { generateFibonacciSequenceProblem } from './generate-fibonacci-sequence';
+import { applyTransformOverEachElementInArrayProblem } from './apply-transform-over-each-element-in-array';
 import { debounceProblem } from './debounce';
 import { debounce2Problem } from './debounce2';
 import { throttleProblem } from './throttle';
@@ -76,6 +89,19 @@ export const problems = [
   makeCounterProblem,
   makeCounter2Problem,
   sleepProblem,
+  functionCompositionProblem,
+  isObjectEmptyProblem,
+  calculatorWithMethodChainingProblem,
+  intervalCancellationProblem,
+  sortByProblem,
+  addTwoPromisesProblem,
+  timeoutCancellationProblem,
+  returnLengthOfArgumentsPassedProblem,
+  arrayWrapperProblem,
+  chunkArrayProblem,
+  allowOneFunctionCallProblem,
+  generateFibonacciSequenceProblem,
+  applyTransformOverEachElementInArrayProblem,
   debounceProblem,
   debounce2Problem,
   throttleProblem,
