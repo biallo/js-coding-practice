@@ -25,6 +25,26 @@ function getInitialSelectedId() {
 
 export function PracticeApp() {
   const [selectedId, setSelectedId] = useState(getInitialSelectedId);
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const filteredProblems = useMemo(() => {
+    const query = searchQuery.trim().toLowerCase();
+
+    if (!query) {
+      return problems;
+    }
+
+    return problems.filter((problem) => {
+      const searchableText = [
+        problem.title,
+        problem.difficulty,
+      ]
+        .join(' ')
+        .toLowerCase();
+
+      return searchableText.includes(query);
+    });
+  }, [searchQuery]);
 
   const selectedProblem = useMemo(
     () => problems.find((problem) => problem.id === selectedId) ?? problems[0],
@@ -52,9 +72,12 @@ export function PracticeApp() {
   return (
     <main className="practice-shell">
       <ProblemSidebar
+        onSearchChange={setSearchQuery}
         onSelect={setSelectedId}
-        problems={problems}
+        problems={filteredProblems}
+        searchQuery={searchQuery}
         selectedId={selectedProblem.id}
+        totalProblemCount={problems.length}
       />
       <ProblemDetail problem={selectedProblem} />
     </main>
