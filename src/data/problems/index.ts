@@ -1,14 +1,17 @@
 import { arrayFilterProblem } from './array-filter';
+import { arrayPrototypeLastProblem } from './array-prototype-last';
+import { arrayReduceProblem } from './array-reduce';
+import { arrayReduceTransformationProblem } from './array-reduce-transformation';
 import { readingOrderProblem } from './reading-order';
 import { typeUtilitiesProblem } from './type-utilities';
 import { typeUtilities2Problem } from './type-utilities-2';
 import { cycleProblem } from './cycle';
-import { arrayReduceProblem } from './array-reduce';
 import { minByProblem } from './min-by';
 import { functionCallProblem } from './function-call';
 import { meanProblem } from './mean';
 import { makeCounterProblem } from './make-counter';
 import { makeCounter2Problem } from './make-counter2';
+import { sleepProblem } from './sleep';
 import { debounceProblem } from './debounce';
 import { debounce2Problem } from './debounce2';
 import { throttleProblem } from './throttle';
@@ -55,19 +58,24 @@ import { schemaValidatorProblem } from './schema-validator';
 import { drizzleQueryBuilderProblem } from './drizzle-query-builder';
 import { longestCommonPrefixLengthProblem } from './longest-common-prefix-length';
 import { checkIfObjectInstanceOfClassProblem } from './check-if-object-instance-of-class';
+import { cacheWithTimeLimitProblem } from './cache-with-time-limit';
+import { snailTraversalProblem } from './snail-traversal';
 
 export const problems = [
   arrayFilterProblem,
+  arrayPrototypeLastProblem,
+  arrayReduceProblem,
+  arrayReduceTransformationProblem,
   readingOrderProblem,
   typeUtilitiesProblem,
   typeUtilities2Problem,
   cycleProblem,
-  arrayReduceProblem,
   minByProblem,
   functionCallProblem,
   meanProblem,
   makeCounterProblem,
   makeCounter2Problem,
+  sleepProblem,
   debounceProblem,
   debounce2Problem,
   throttleProblem,
@@ -114,4 +122,6 @@ export const problems = [
   drizzleQueryBuilderProblem,
   longestCommonPrefixLengthProblem,
   checkIfObjectInstanceOfClassProblem,
+  cacheWithTimeLimitProblem,
+  snailTraversalProblem,
 ];
