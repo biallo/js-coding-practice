@@ -8,6 +8,7 @@ import { minByProblem } from './min-by';
 import { functionCallProblem } from './function-call';
 import { meanProblem } from './mean';
 import { makeCounterProblem } from './make-counter';
+import { makeCounter2Problem } from './make-counter2';
 import { debounceProblem } from './debounce';
 import { debounce2Problem } from './debounce2';
 import { throttleProblem } from './throttle';
@@ -65,6 +66,7 @@ export const problems = [
   functionCallProblem,
   meanProblem,
   makeCounterProblem,
+  makeCounter2Problem,
   debounceProblem,
   debounce2Problem,
   throttleProblem,
