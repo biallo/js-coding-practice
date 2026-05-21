@@ -50,6 +50,7 @@ import { styledTextRangesProblem } from './styled-text-ranges';
 import { spreadsheetProblem } from './spreadsheet';
 import { schemaValidatorProblem } from './schema-validator';
 import { drizzleQueryBuilderProblem } from './drizzle-query-builder';
+import { longestCommonPrefixLengthProblem } from './longest-common-prefix-length';
 
 export const problems = [
   arrayFilterProblem,
@@ -104,4 +105,5 @@ export const problems = [
   spreadsheetProblem,
   schemaValidatorProblem,
   drizzleQueryBuilderProblem,
+  longestCommonPrefixLengthProblem,
 ];

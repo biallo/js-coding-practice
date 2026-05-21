@@ -56,12 +56,14 @@
 }
 
 .approach-tabs {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 8px;
 }
 
 .approach-tabs button {
+  width: fit-content;
+  min-width: 100px;
   min-height: 44px;
   border: 1px solid var(--border);
   border-radius: 8px;
