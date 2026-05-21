@@ -8,6 +8,13 @@ import { classnamesProblem } from './classnames';
 import { classnames2Problem } from './classnames2';
 import { promiseAllProblem } from './promise-all';
 import { mapAsyncProblem } from './map-async';
+import { mapAsyncLimitProblem } from './map-async-limit';
+import { eventEmitterProblem } from './event-emitter';
+import { eventEmitter2Problem } from './event-emitter2';
+import { getElementsByStyleProblem } from './get-elements-by-style';
+import { deepCloneProblem } from './deep-clone';
+import { deepEqualProblem } from './deep-equal';
+import { listFormatProblem } from './list-format';
 
 export const problems = [
   arrayFilterProblem,
@@ -20,4 +27,11 @@ export const problems = [
   classnames2Problem,
   promiseAllProblem,
   mapAsyncProblem,
+  mapAsyncLimitProblem,
+  eventEmitterProblem,
+  eventEmitter2Problem,
+  getElementsByStyleProblem,
+  deepCloneProblem,
+  listFormatProblem,
+  deepEqualProblem,
 ];
