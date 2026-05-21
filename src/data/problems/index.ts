@@ -44,6 +44,12 @@ import { promisifyProblem } from './promisify';
 import { deepOmitProblem } from './deep-omit';
 import { testRunnerProblem } from './test-runner';
 import { testRunner2Problem } from './test-runner2';
+import { miniOrmProblem } from './mini-orm';
+import { superjsonProblem } from './superjson';
+import { styledTextRangesProblem } from './styled-text-ranges';
+import { spreadsheetProblem } from './spreadsheet';
+import { schemaValidatorProblem } from './schema-validator';
+import { drizzleQueryBuilderProblem } from './drizzle-query-builder';
 
 export const problems = [
   arrayFilterProblem,
@@ -92,4 +98,10 @@ export const problems = [
   deepOmitProblem,
   testRunnerProblem,
   testRunner2Problem,
+  miniOrmProblem,
+  superjsonProblem,
+  styledTextRangesProblem,
+  spreadsheetProblem,
+  schemaValidatorProblem,
+  drizzleQueryBuilderProblem,
 ];
