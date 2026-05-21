@@ -1,4 +1,7 @@
 import { arrayFilterProblem } from './array-filter';
+import { readingOrderProblem } from './reading-order';
+import { typeUtilitiesProblem } from './type-utilities';
+import { typeUtilities2Problem } from './type-utilities-2';
 import { debounceProblem } from './debounce';
 import { debounce2Problem } from './debounce2';
 import { throttleProblem } from './throttle';
@@ -21,9 +24,15 @@ import { classVarianceAuthorityProblem } from './class-variance-authority';
 import { templateEngineProblem } from './template-engine';
 import { rateLimiterProblem } from './rate-limiter';
 import { middlewaresProblem } from './middlewares';
+import { lowestHidingElementProblem } from './lowest-hiding-element';
+import { dataMergingProblem } from './data-merging';
+import { countByProblem } from './count-by';
 
 export const problems = [
   arrayFilterProblem,
+  readingOrderProblem,
+  typeUtilitiesProblem,
+  typeUtilities2Problem,
   debounceProblem,
   debounce2Problem,
   throttleProblem,
@@ -46,4 +55,7 @@ export const problems = [
   templateEngineProblem,
   rateLimiterProblem,
   middlewaresProblem,
+  lowestHidingElementProblem,
+  dataMergingProblem,
+  countByProblem,
 ];
