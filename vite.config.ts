@@ -10,5 +10,18 @@ const isProjectPage =
 // https://vite.dev/config/
 export default defineConfig({
   base: isProjectPage ? `/${repositoryName}/` : '/',
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('/node_modules/react')) {
+            return 'react';
+          }
+
+          return undefined;
+        },
+      },
+    },
+  },
   plugins: [react()],
 });

@@ -1,7 +1,10 @@
-import { useEffect, useRef } from 'react';
+import { lazy, Suspense, useEffect, useRef } from 'react';
 import type { PracticeProblem } from '../data/problemTypes';
-import { CodeTabs } from './CodeTabs';
 import { InlineText, RichText } from './RichText';
+
+const CodeTabs = lazy(() =>
+  import('./CodeTabs').then((module) => ({ default: module.CodeTabs })),
+);
 
 type ProblemDetailProps = {
   problem: PracticeProblem
@@ -38,7 +41,11 @@ export function ProblemDetail({ problem }: ProblemDetailProps) {
         </div>
       </section>
 
-      <CodeTabs key={problem.id} solutions={problem.solutions} />
+      <Suspense
+        fallback={<div className="code-panel-loading">Loading solution...</div>}
+      >
+        <CodeTabs key={problem.id} solutions={problem.solutions} />
+      </Suspense>
     </section>
   );
 }

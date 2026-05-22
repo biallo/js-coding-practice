@@ -96,6 +96,17 @@
   margin-top: 14px;
 }
 
+.code-panel-loading {
+  min-height: 220px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--code-surface);
+  color: var(--code-muted);
+  display: grid;
+  margin-top: 14px;
+  place-items: center;
+}
+
 .code-title {
   display: flex;
   align-items: center;

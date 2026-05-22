@@ -73,6 +73,13 @@ import { longestCommonPrefixLengthProblem } from './longest-common-prefix-length
 import { checkIfObjectInstanceOfClassProblem } from './check-if-object-instance-of-class';
 import { cacheWithTimeLimitProblem } from './cache-with-time-limit';
 import { snailTraversalProblem } from './snail-traversal';
+import { joinTwoArraysByIdProblem } from './join-two-arrays-by-id';
+import { executeAsynchronousFunctionsInParallelProblem } from './execute-asynchronous-functions-in-parallel';
+import { compactObjectProblem } from './compact-object';
+import { groupByProblem } from './group-by';
+import { nestedArrayGeneratorProblem } from './nested-array-generator';
+import { promiseTimeLimitProblem } from './promise-time-limit';
+import { designCancellableFunctionProblem } from './design-cancellable-function';
 
 export const problems = [
   arrayFilterProblem,
@@ -150,4 +157,11 @@ export const problems = [
   checkIfObjectInstanceOfClassProblem,
   cacheWithTimeLimitProblem,
   snailTraversalProblem,
+  joinTwoArraysByIdProblem,
+  executeAsynchronousFunctionsInParallelProblem,
+  compactObjectProblem,
+  groupByProblem,
+  nestedArrayGeneratorProblem,
+  promiseTimeLimitProblem,
+  designCancellableFunctionProblem,
 ];
