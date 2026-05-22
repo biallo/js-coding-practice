@@ -90,6 +90,18 @@ import { eventEmitter3Problem } from './event-emitter3';
 import { asyncPoolProblem } from './async-pool';
 import { domEventDelegationProblem } from './dom-event-delegation';
 import { virtualDomRenderProblem } from './virtual-dom-render';
+import { retryWithBackoffProblem } from './retry-with-backoff';
+import { requestDeduplicationProblem } from './request-deduplication';
+import { schedulerProblem } from './scheduler';
+import { storeReduxProblem } from './store-redux';
+import { routerProblem } from './router';
+import { domDiffPatchProblem } from './dom-diff-patch';
+import { autocompleteProblem } from './autocomplete';
+import { focusTrapProblem } from './focus-trap';
+import { dagTaskRunnerProblem } from './dag-task-runner';
+import { promiseQueuePauseResumeProblem } from './promise-queue-pause-resume';
+import { objectPathGetSetProblem } from './object-path-get-set';
+import { queryStringParserProblem } from './query-string-parser';
 
 export const problems = [
   arrayFilterProblem,
@@ -184,4 +196,16 @@ export const problems = [
   asyncPoolProblem,
   domEventDelegationProblem,
   virtualDomRenderProblem,
+  retryWithBackoffProblem,
+  requestDeduplicationProblem,
+  schedulerProblem,
+  storeReduxProblem,
+  routerProblem,
+  domDiffPatchProblem,
+  autocompleteProblem,
+  focusTrapProblem,
+  dagTaskRunnerProblem,
+  promiseQueuePauseResumeProblem,
+  objectPathGetSetProblem,
+  queryStringParserProblem,
 ];
