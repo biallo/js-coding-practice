@@ -80,6 +80,16 @@ import { groupByProblem } from './group-by';
 import { nestedArrayGeneratorProblem } from './nested-array-generator';
 import { promiseTimeLimitProblem } from './promise-time-limit';
 import { designCancellableFunctionProblem } from './design-cancellable-function';
+import { functionBindProblem } from './function-bind';
+import { newOperatorProblem } from './new-operator';
+import { promiseConcurrencyMethodsProblem } from './promise-concurrency-methods';
+import { lruCacheProblem } from './lru-cache';
+import { eventLoopOutputOrderProblem } from './event-loop-output-order';
+import { deepClone2Problem } from './deep-clone2';
+import { eventEmitter3Problem } from './event-emitter3';
+import { asyncPoolProblem } from './async-pool';
+import { domEventDelegationProblem } from './dom-event-delegation';
+import { virtualDomRenderProblem } from './virtual-dom-render';
 
 export const problems = [
   arrayFilterProblem,
@@ -117,14 +127,19 @@ export const problems = [
   classnamesProblem,
   classnames2Problem,
   promiseAllProblem,
+  promiseTimeLimitProblem,
+  promiseConcurrencyMethodsProblem,
   mapAsyncProblem,
   mapAsyncLimitProblem,
   eventEmitterProblem,
   eventEmitter2Problem,
+  eventEmitter3Problem,
   getElementsByStyleProblem,
   deepCloneProblem,
-  listFormatProblem,
+  deepClone2Problem,
   deepEqualProblem,
+  deepOmitProblem,
+  listFormatProblem,
   undoRedoManagerProblem,
   undoRedoManager2Problem,
   classVarianceAuthorityProblem,
@@ -144,7 +159,6 @@ export const problems = [
   memoize2Problem,
   memoize3Problem,
   promisifyProblem,
-  deepOmitProblem,
   testRunnerProblem,
   testRunner2Problem,
   miniOrmProblem,
@@ -162,6 +176,12 @@ export const problems = [
   compactObjectProblem,
   groupByProblem,
   nestedArrayGeneratorProblem,
-  promiseTimeLimitProblem,
   designCancellableFunctionProblem,
+  functionBindProblem,
+  newOperatorProblem,
+  lruCacheProblem,
+  eventLoopOutputOrderProblem,
+  asyncPoolProblem,
+  domEventDelegationProblem,
+  virtualDomRenderProblem,
 ];
