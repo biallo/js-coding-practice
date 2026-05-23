@@ -18,12 +18,30 @@ export function ProblemSidebar({
   onSearchChange,
   onSelect,
 }: ProblemSidebarProps) {
+  const listRef = useRef<HTMLElement>(null);
   const selectedButtonRef = useRef<HTMLButtonElement>(null);
   const appIconUrl = `${import.meta.env.BASE_URL}icons/icon-192.png`;
   const hasSearchQuery = searchQuery.trim().length > 0;
 
   useEffect(() => {
-    selectedButtonRef.current?.scrollIntoView({
+    const selectedButton = selectedButtonRef.current;
+    const list = listRef.current;
+
+    if (!selectedButton || !list) {
+      return;
+    }
+
+    const buttonRect = selectedButton.getBoundingClientRect();
+    const listRect = list.getBoundingClientRect();
+    const isVisible =
+      buttonRect.top >= listRect.top &&
+      buttonRect.bottom <= listRect.bottom;
+
+    if (isVisible) {
+      return;
+    }
+
+    selectedButton.scrollIntoView({
       block: 'nearest',
       inline: 'nearest',
     });
@@ -58,7 +76,7 @@ export function ProblemSidebar({
         </p>
       </div>
 
-      <nav className="problem-list scroll-area" aria-label="Problems">
+      <nav className="problem-list scroll-area" aria-label="Problems" ref={listRef}>
         {problems.length > 0 ? (
           problems.map((problem, index) => (
             <button
