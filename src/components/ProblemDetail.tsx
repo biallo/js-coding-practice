@@ -1,6 +1,6 @@
 import { lazy, Suspense, useEffect, useRef } from 'react';
 import type { PracticeProblem } from '../data/problemTypes';
-import { InlineText, RichText } from './RichText';
+import { ExampleText, InlineText, RichText } from './RichText';
 
 const CodeTabs = lazy(() =>
   import('./CodeTabs').then((module) => ({ default: module.CodeTabs })),
@@ -28,6 +28,43 @@ export function ProblemDetail({ problem }: ProblemDetailProps) {
       <section className="prompt-section" aria-labelledby="prompt-title">
         <h3 id="prompt-title">Prompt</h3>
         <RichText text={problem.description} />
+
+        {problem.examples && problem.examples.length > 0 ? (
+          <div className="examples-block">
+            <h4>Examples</h4>
+            <div className="example-list">
+              {problem.examples.map((example, index) => (
+                <article className="example-card" key={`${example.input}-${index}`}>
+                  {problem.examples && problem.examples.length > 1 ? (
+                    <h5>Example {index + 1}</h5>
+                  ) : null}
+                  <dl>
+                    <div>
+                      <dt>Input</dt>
+                      <dd>
+                        <ExampleText text={example.input} />
+                      </dd>
+                    </div>
+                    <div>
+                      <dt>Output</dt>
+                      <dd>
+                        <ExampleText text={example.output} />
+                      </dd>
+                    </div>
+                    {example.explanation ? (
+                      <div>
+                        <dt>Explanation</dt>
+                        <dd>
+                          <ExampleText text={example.explanation} />
+                        </dd>
+                      </div>
+                    ) : null}
+                  </dl>
+                </article>
+              ))}
+            </div>
+          </div>
+        ) : null}
 
         <div className="requirements-block">
           <h4>Requirements</h4>

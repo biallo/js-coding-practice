@@ -8,8 +8,37 @@ export const typeUtilities2Problem: PracticeProblem = {
   id: 'typeUtilities2',
   title: 'Type Utilities II',
   difficulty: 'Easy',
-  description:
-    'JavaScript values can contain non-primitive structures such as arrays, functions, and objects. Many recursive interview problems need precise checks for these types before choosing how to process a value.\n\nImplement the following utility functions for non-primitive values: `isArray(value)`, `isFunction(value)`, `isObject(value)`, and `isPlainObject(value)`.\n\n`isObject` should return `true` for objects, arrays, and functions, but should return `false` for `null` and `undefined`. `isPlainObject` should only return `true` for plain objects whose prototype is `Object.prototype` or `null`; it should return `false` for arrays, functions, dates, and other built-in instances.\n\nExamples:\n`isArray([])` returns `true`.\n`isFunction(() => {})` returns `true`.\n`isObject([])` returns `true`.\n`isObject(null)` returns `false`.\n`isPlainObject({})` returns `true`.\n`isPlainObject(Object.create(null))` returns `true`.\n`isPlainObject([])` returns `false`.',
+  description: 'JavaScript values can contain non-primitive structures such as arrays, functions, and objects. Many recursive interview problems need precise checks for these types before choosing how to process a value.\n\nImplement the following utility functions for non-primitive values: `isArray(value)`, `isFunction(value)`, `isObject(value)`, and `isPlainObject(value)`.\n\n`isObject` should return `true` for objects, arrays, and functions, but should return `false` for `null` and `undefined`. `isPlainObject` should only return `true` for plain objects whose prototype is `Object.prototype` or `null`; it should return `false` for arrays, functions, dates, and other built-in instances.',
+  examples: [
+    {
+      input: '`isArray([])`',
+      output: '`true`',
+    },
+    {
+      input: '`isFunction(() => {})`',
+      output: '`true`',
+    },
+    {
+      input: '`isObject([])`',
+      output: '`true`',
+    },
+    {
+      input: '`isObject(null)`',
+      output: '`false`',
+    },
+    {
+      input: '`isPlainObject({})`',
+      output: '`true`',
+    },
+    {
+      input: '`isPlainObject(Object.create(null))`',
+      output: '`true`',
+    },
+    {
+      input: '`isPlainObject([])`',
+      output: '`false`',
+    }
+  ],
   points: [
     '`isArray(value)`: Returns whether `value` is an array.',
     '`isFunction(value)`: Returns whether `value` is a function.',

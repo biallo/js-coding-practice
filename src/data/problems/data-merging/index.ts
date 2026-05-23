@@ -8,8 +8,13 @@ export const dataMergingProblem: PracticeProblem = {
   id: 'dataMerging',
   title: 'Data Merging',
   difficulty: 'Medium',
-  description:
-    'A data set of gym sessions contains objects with a `user` id, a `duration` in minutes, and an alphabetically sorted `equipment` array.\n\nImplement `mergeData(sessions)`, which returns a unified view of each user\'s activity. Sessions with the same `user` should be merged into one object. When merging, sum the `duration` fields and combine all `equipment` values with duplicates removed and the final equipment list sorted alphabetically.\n\nThe result order should follow the original session order. If a user appears more than once, the merged row should stay at that user\'s earliest occurrence. Do not mutate the input objects or their equipment arrays.\n\nExample:\n`mergeData([{ user: 8, duration: 50, equipment: [\'bench\'] }, { user: 7, duration: 150, equipment: [\'dumbbell\'] }, { user: 7, duration: 100, equipment: [\'bike\', \'kettlebell\'] }])` returns `[{ user: 8, duration: 50, equipment: [\'bench\'] }, { user: 7, duration: 250, equipment: [\'bike\', \'dumbbell\', \'kettlebell\'] }]`.',
+  description: 'A data set of gym sessions contains objects with a `user` id, a `duration` in minutes, and an alphabetically sorted `equipment` array.\n\nImplement `mergeData(sessions)`, which returns a unified view of each user\'s activity. Sessions with the same `user` should be merged into one object. When merging, sum the `duration` fields and combine all `equipment` values with duplicates removed and the final equipment list sorted alphabetically.\n\nThe result order should follow the original session order. If a user appears more than once, the merged row should stay at that user\'s earliest occurrence. Do not mutate the input objects or their equipment arrays.',
+  examples: [
+    {
+      input: '`mergeData([\n  { user: 8, duration: 50, equipment: [\'bench\'] },\n  { user: 7, duration: 150, equipment: [\'dumbbell\'] },\n  { user: 7, duration: 100, equipment: [\'bike\', \'kettlebell\'] },\n])`',
+      output: '`[\n  { user: 8, duration: 50, equipment: [\'bench\'] },\n  { user: 7, duration: 250, equipment: [\'bike\', \'dumbbell\', \'kettlebell\'] },\n]`',
+    }
+  ],
   points: [
     '`sessions` (Array): Gym session records containing `user`, `duration`, and `equipment`.',
     'Merge records with the same `user` into a single output object.',

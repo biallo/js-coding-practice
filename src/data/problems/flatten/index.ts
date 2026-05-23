@@ -12,6 +12,16 @@ export const flattenProblem: PracticeProblem = {
   difficulty: 'Medium',
   description:
     'How to flatten an array in JavaScript\nIf you just need to flatten an array in production code, use the built-in `Array.prototype.flat`\n\n`Array.flat` is part of ES2019 and is supported in every evergreen browser and Node.js 11+. It returns a new array and does not mutate the original.\n\nWhen `Array.flat` isn\'t enough\n`Array.flat` covers the standard case. You\'ll need a custom flatten when you need any of the following:\nSkip-flattening certain values, for example keeping `Buffer`-like objects or typed arrays intact while flattening plain arrays.\nFlattening trees of objects rather than arrays, such as nested children in a tree node structure.\nIterative flattening to avoid recursion limits when the nesting depth is unknown and potentially adversarial.\nLazy flattening with a generator when the result is large and you only need part of it.\n\nFor all of those, you\'ll write your own `flatten`. This is also one of the most common JavaScript interview questions because it tests recursion, type checking, and array manipulation in a small surface area.\n\nImplement a function `flatten` that returns a newly-created array with all sub-array elements concatenated recursively into a single level.',
+  examples: [
+    {
+      input: '`flatten([1, [2, [3, 4]], 5])`',
+      output: '`[1, 2, 3, 4, 5]`',
+    },
+    {
+      input: '`flatten([[["a"]], ["b"], "c"])`',
+      output: '`["a", "b", "c"]`',
+    },
+  ],
   points: [
     '`array` (Array): The array to flatten.',
     '(Array): Returns a new array with all nested array elements flattened recursively.',

@@ -8,8 +8,13 @@ export const htmlSerializerProblem: PracticeProblem = {
   id: 'htmlSerializer',
   title: 'HTML Serializer',
   difficulty: 'Medium',
-  description:
-    'Given an object that resembles a DOM tree, implement `serializeHTML(tree)`, which serializes the tree into a formatted HTML string.\n\nEach element node has a `tag` and a `children` array. Children can be either nested element nodes or text strings. The output should contain one tag or text node per line, and each nesting level should be indented by one tab character (`\\t`).\n\nExample:\n`serializeHTML({ tag: \'body\', children: [{ tag: \'div\', children: [{ tag: \'span\', children: [\'foo\', \'bar\'] }] }, { tag: \'div\', children: [\'baz\'] }] })` returns a formatted string equivalent to:\n`<body>\\n\\t<div>\\n\\t\\t<span>\\n\\t\\t\\tfoo\\n\\t\\t\\tbar\\n\\t\\t</span>\\n\\t</div>\\n\\t<div>\\n\\t\\tbaz\\n\\t</div>\\n</body>`.',
+  description: 'Given an object that resembles a DOM tree, implement `serializeHTML(tree)`, which serializes the tree into a formatted HTML string.\n\nEach element node has a `tag` and a `children` array. Children can be either nested element nodes or text strings. The output should contain one tag or text node per line, and each nesting level should be indented by one tab character (`\\t`).',
+  examples: [
+    {
+      input: '`serializeHTML({\n  tag: \'body\',\n  children: [\n    { tag: \'div\', children: [{ tag: \'span\', children: [\'foo\', \'bar\'] }] },\n    { tag: \'div\', children: [\'baz\'] },\n  ],\n})` returns a formatted string equivalent to:\n`<body>\n\\t<div>\n\\t\\t<span>\n\\t\\t\\tfoo\n\\t\\t\\tbar\n\\t\\t</span>\n\\t</div>\n\\t<div>\n\\t\\tbaz\n\\t</div>\n</body>`.',
+      output: 'A newline-formatted HTML string with one tab per nesting level',
+    }
+  ],
   points: [
     '`tree` (Object): A DOM-like node with `tag` and `children`.',
     'Element children can be strings or nested element nodes.',

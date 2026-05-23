@@ -6,8 +6,21 @@ export const sortByProblem: PracticeProblem = {
   id: 'sortBy',
   title: 'Sort By',
   difficulty: 'Easy',
-  description:
-    'Given an array `arr` and a function `fn`, return a sorted array `sortedArr`.\n\nThe array should be sorted in ascending order by the numeric value returned from calling `fn` on each element. You can assume `fn` always returns a number.\n\nExamples:\n`sortBy([5, 4, 1, 2, 3], (x) => x)` returns `[1, 2, 3, 4, 5]`.\n`sortBy([{ x: 1 }, { x: 0 }, { x: -1 }], (d) => d.x)` returns `[{ x: -1 }, { x: 0 }, { x: 1 }]`.\n`sortBy([[3, 4], [5, 2], [10, 1]], (x) => x[1])` returns `[[10, 1], [5, 2], [3, 4]]`.',
+  description: 'Given an array `arr` and a function `fn`, return a sorted array `sortedArr`.\n\nThe array should be sorted in ascending order by the numeric value returned from calling `fn` on each element. You can assume `fn` always returns a number.',
+  examples: [
+    {
+      input: '`sortBy([5, 4, 1, 2, 3], (x) => x)`',
+      output: '`[1, 2, 3, 4, 5]`',
+    },
+    {
+      input: '`sortBy([{ x: 1 }, { x: 0 }, { x: -1 }], (d) => d.x)`',
+      output: '`[{ x: -1 }, { x: 0 }, { x: 1 }]`',
+    },
+    {
+      input: '`sortBy([[3, 4], [5, 2], [10, 1]], (x) => x[1])`',
+      output: '`[[10, 1], [5, 2], [3, 4]]`',
+    }
+  ],
   points: [
     '`arr` (Array): The array to sort.',
     '`fn` (Function): Called with each element and returns the numeric sort key.',

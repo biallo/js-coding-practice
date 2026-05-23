@@ -6,8 +6,21 @@ export const designCancellableFunctionProblem: PracticeProblem = {
   id: 'designCancellableFunction',
   title: 'Design Cancellable Function',
   difficulty: 'Hard',
-  description:
-    'Sometimes you have a long-running task and may want to cancel it before it completes. Write a function `cancellable(generator)` that accepts a generator object and returns an array containing a cancel function and a promise.\n\nThe generator will only yield promises. When a yielded promise resolves, pass its resolved value back into the generator. When a yielded promise rejects, throw that error back into the generator.\n\nIf the cancel function is called before the generator is done, throw the string `"Cancelled"` back into the generator. If the generator catches that error and continues or returns, the returned promise should follow the next yielded promise or resolve with the returned value. If the error is not caught, the returned promise should reject with `"Cancelled"` and no more generator code should run.\n\nWhen the generator finishes normally, the returned promise should resolve with the generator\'s return value. If the generator throws an uncaught error, the returned promise should reject with that error.\n\nExamples:\n`function* tasks() { const val = yield Promise.resolve(2 + 2); yield new Promise((resolve) => setTimeout(resolve, 100)); return val + 1; }`\n`const [cancel, promise] = cancellable(tasks());`\n`setTimeout(cancel, 50);`\n`promise` rejects with `"Cancelled"`.\n\n`function* task() { return 42; }`\n`cancellable(task())[1]` resolves to `42`.\n\n`function* task() { const msg = yield Promise.resolve("Hello"); throw `Error: ${msg}`; }`\n`cancellable(task())[1]` rejects with `"Error: Hello"`.',
+  description: 'Sometimes you have a long-running task and may want to cancel it before it completes. Write a function `cancellable(generator)` that accepts a generator object and returns an array containing a cancel function and a promise.\n\nThe generator will only yield promises. When a yielded promise resolves, pass its resolved value back into the generator. When a yielded promise rejects, throw that error back into the generator.\n\nIf the cancel function is called before the generator is done, throw the string `"Cancelled"` back into the generator. If the generator catches that error and continues or returns, the returned promise should follow the next yielded promise or resolve with the returned value. If the error is not caught, the returned promise should reject with `"Cancelled"` and no more generator code should run.\n\nWhen the generator finishes normally, the returned promise should resolve with the generator\'s return value. If the generator throws an uncaught error, the returned promise should reject with that error.',
+  examples: [
+    {
+      input: '`function* tasks() {\n  const val = yield Promise.resolve(2 + 2);\n  yield new Promise((resolve) => setTimeout(resolve, 100));\n  return val + 1;\n}`\n`const [cancel, promise] = cancellable(tasks());`\n`setTimeout(cancel, 50);`\n`promise`',
+      output: '`"Cancelled"`',
+    },
+    {
+      input: '`function* task() {\n  return 42;\n}`\n`cancellable(task())[1]`',
+      output: '`42`',
+    },
+    {
+      input: '`function* task() {\n  const msg = yield Promise.resolve("Hello");\n  throw "Error: " + msg;\n}`\n`cancellable(task())[1]`',
+      output: '`"Error: Hello"`',
+    }
+  ],
   points: [
     '`generator` (Generator): A generator object that yields promises.',
     'Return `[cancel, promise]`.',

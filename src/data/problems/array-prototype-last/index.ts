@@ -6,8 +6,17 @@ export const arrayPrototypeLastProblem: PracticeProblem = {
   id: 'arrayPrototypeLast',
   title: 'Array.prototype.last',
   difficulty: 'Easy',
-  description:
-    'Write code that enhances all arrays so that `array.last()` returns the last element of the array.\n\nIf the array has no elements, `array.last()` should return `-1`.\n\nExamples:\n`const nums = [1, 2, 3];`\n`nums.last()` returns `3`.\n\n`const empty = [];`\n`empty.last()` returns `-1`.',
+  description: 'Write code that enhances all arrays so that `array.last()` returns the last element of the array.\n\nIf the array has no elements, `array.last()` should return `-1`.',
+  examples: [
+    {
+      input: '`const nums = [1, 2, 3];`\n`nums.last()`',
+      output: '`3`',
+    },
+    {
+      input: '`const empty = [];`\n`empty.last()`',
+      output: '`-1`',
+    }
+  ],
   points: [
     'Add a `last()` method to `Array.prototype`.',
     '`last()` returns the final element when the array is not empty.',

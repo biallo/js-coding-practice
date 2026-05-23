@@ -8,8 +8,13 @@ export const classVarianceAuthorityProblem: PracticeProblem = {
   id: 'classVarianceAuthority',
   title: 'Class Variance Authority',
   difficulty: 'Medium',
-  description:
-    'Implement a simplified `cva` utility inspired by Class Variance Authority. The utility should make it easy to generate class name strings for components that have multiple visual variants.\n\n`cva(base, config)` should return a function. Calling that returned function with variant props should combine the base classes, selected variant classes, matching compound variant classes, and any extra `class` or `className` values.\n\nThe `config` object can contain:\n`variants`: A mapping of variant names to variant values and their class names.\n`defaultVariants`: Default variant values used when a prop is not provided.\n`compoundVariants`: Extra class names that apply only when multiple variant conditions match.\n\nBoolean variant values should be treated as string keys such as `true` and `false`. Compound variant conditions may also contain an array of acceptable values.\n\nExample:\n`const button = cva(\'button\', { variants: { intent: { primary: \'primary\', secondary: \'secondary\' } }, defaultVariants: { intent: \'primary\' } });`\n`button()` returns `\'button primary\'`.\n`button({ intent: \'secondary\', className: \'extra\' })` returns `\'button secondary extra\'`.',
+  description: 'Implement a simplified `cva` utility inspired by Class Variance Authority. The utility should make it easy to generate class name strings for components that have multiple visual variants.\n\n`cva(base, config)` should return a function. Calling that returned function with variant props should combine the base classes, selected variant classes, matching compound variant classes, and any extra `class` or `className` values.\n\nThe `config` object can contain:\n`variants`: A mapping of variant names to variant values and their class names.\n`defaultVariants`: Default variant values used when a prop is not provided.\n`compoundVariants`: Extra class names that apply only when multiple variant conditions match.\n\nBoolean variant values should be treated as string keys such as `true` and `false`. Compound variant conditions may also contain an array of acceptable values.',
+  examples: [
+    {
+      input: '`const button = cva(\'button\', {\n  variants: {\n    intent: { primary: \'primary\', secondary: \'secondary\' },\n  },\n  defaultVariants: { intent: \'primary\' },\n});`\n`button()` returns `\'button primary\'`.\n`button({ intent: \'secondary\', className: \'extra\' })`',
+      output: '`\'button secondary extra\'`',
+    }
+  ],
   points: [
     '`base` (string | string[]): Base class names included in every result.',
     '`config.variants`: Maps variant names and variant values to class names.',

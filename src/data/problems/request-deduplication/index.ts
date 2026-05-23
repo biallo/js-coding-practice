@@ -6,8 +6,17 @@ export const requestDeduplicationProblem: PracticeProblem = {
   id: 'requestDeduplication',
   title: 'Request Deduplication',
   difficulty: 'Medium',
-  description:
-    'Implement `dedupe(requester)`, which wraps an asynchronous requester so concurrent calls for the same key share one in-flight promise.\n\nThe wrapped function receives `key` as its first argument and forwards all arguments to `requester`. If a request for that key is already pending, return the same promise instead of calling `requester` again. Once the promise settles, remove it from the in-flight cache so future calls can start a fresh request.\n\nExamples:\n`const getUser = dedupe(fetchUser);`\n`const a = getUser("42"); const b = getUser("42");`\n`a === b` is `true`, and `fetchUser` is called once while the request is pending.\n\nAfter the request settles, `getUser("42")` should call `fetchUser` again.',
+  description: 'Implement `dedupe(requester)`, which wraps an asynchronous requester so concurrent calls for the same key share one in-flight promise.\n\nThe wrapped function receives `key` as its first argument and forwards all arguments to `requester`. If a request for that key is already pending, return the same promise instead of calling `requester` again. Once the promise settles, remove it from the in-flight cache so future calls can start a fresh request.',
+  examples: [
+    {
+      input: '`const getUser = dedupe(fetchUser);`\n`const a = getUser("42"); const b = getUser("42");`\n`a === b` is `true`, and `fetchUser` is called once while the request is pending.',
+      output: 'Both calls share the same in-flight promise',
+    },
+    {
+      input: 'After the request settles, `getUser("42")` should call `fetchUser` again.',
+      output: 'A later call starts a fresh request',
+    }
+  ],
   points: [
     '`requester(key, ...args)`: Async function to wrap.',
     'Use the first argument as the deduplication key.',

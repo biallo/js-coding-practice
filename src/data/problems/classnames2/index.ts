@@ -8,8 +8,25 @@ export const classnames2Problem: PracticeProblem = {
   id: 'classnames2',
   title: 'Classnames II',
   difficulty: 'Hard',
-  description:
-    'Implement a `classNames` utility that conditionally joins CSS class names together, while also handling de-duplication and function values.\n\nThis is an advanced version of the regular `classNames` problem. The function should accept any number of arguments. Each argument can be a string, number, object, array, function, or falsey value. Strings and numbers add a class. Object keys add a class when their values are truthy and remove that class when their values are falsey. Arrays should be processed recursively. Function values should be called and their return values should be processed by the same rules.\n\nThe result should contain each class name at most once. If a class is added and later turned off by an object entry such as `{ foo: false }`, it should not appear in the final string.\n\nExamples:\n`classNames(\'foo\', \'foo\', \'bar\')` returns `\'foo bar\'`.\n`classNames(\'foo\', { foo: false, bar: true })` returns `\'bar\'`.\n`classNames(\'a\', [\'b\', { c: true }], () => \'d\')` returns `\'a b c d\'`.\n`classNames(() => [\'foo\', { bar: true }])` returns `\'foo bar\'`.',
+  description: 'Implement a `classNames` utility that conditionally joins CSS class names together, while also handling de-duplication and function values.\n\nThis is an advanced version of the regular `classNames` problem. The function should accept any number of arguments. Each argument can be a string, number, object, array, function, or falsey value. Strings and numbers add a class. Object keys add a class when their values are truthy and remove that class when their values are falsey. Arrays should be processed recursively. Function values should be called and their return values should be processed by the same rules.\n\nThe result should contain each class name at most once. If a class is added and later turned off by an object entry such as `{ foo: false }`, it should not appear in the final string.',
+  examples: [
+    {
+      input: '`classNames(\'foo\', \'foo\', \'bar\')`',
+      output: '`\'foo bar\'`',
+    },
+    {
+      input: '`classNames(\'foo\', { foo: false, bar: true })`',
+      output: '`\'bar\'`',
+    },
+    {
+      input: '`classNames(\'a\', [\'b\', { c: true }], () => \'d\')`',
+      output: '`\'a b c d\'`',
+    },
+    {
+      input: '`classNames(() => [\'foo\', { bar: true }])`',
+      output: '`\'foo bar\'`',
+    }
+  ],
   points: [
     '`...args` (Array): Class values to combine, including strings, numbers, objects, arrays, functions, and falsey values.',
     'Each class should appear at most once in the returned string.',

@@ -8,8 +8,13 @@ export const middlewaresProblem: PracticeProblem = {
   id: 'middlewares',
   title: 'Middlewares',
   difficulty: 'Medium',
-  description:
-    'Implement a `middlewares` function that accepts any number of middleware functions and composes them into one callable function.\n\nThe composed function should accept a shared `context` object and return a `Promise`. Each middleware receives two arguments: the shared `context` and a `next` function. Calling `next()` should run the next middleware in the chain. If a middleware does not call `next()`, the chain stops there.\n\nExecution should be asynchronous and ordered, similar to middleware systems in frameworks such as Koa. Middleware can run code before and after `await next()`, which creates a nested execution flow.\n\nExample:\n`async function fn1(ctx, next) { ctx.stack.push(\'fn1-start\'); await next(); ctx.stack.push(\'fn1-end\'); }`\n`async function fn2(ctx, next) { ctx.stack.push(\'fn2-start\'); await next(); ctx.stack.push(\'fn2-end\'); }`\nAfter `await middlewares(fn1, fn2)({ stack: [] })`, the stack should be `[\'fn1-start\', \'fn2-start\', \'fn2-end\', \'fn1-end\']`.',
+  description: 'Implement a `middlewares` function that accepts any number of middleware functions and composes them into one callable function.\n\nThe composed function should accept a shared `context` object and return a `Promise`. Each middleware receives two arguments: the shared `context` and a `next` function. Calling `next()` should run the next middleware in the chain. If a middleware does not call `next()`, the chain stops there.\n\nExecution should be asynchronous and ordered, similar to middleware systems in frameworks such as Koa. Middleware can run code before and after `await next()`, which creates a nested execution flow.',
+  examples: [
+    {
+      input: '`async function fn1(ctx, next) {\n  ctx.stack.push(\'fn1-start\');\n  await next();\n  ctx.stack.push(\'fn1-end\');\n}`\n`async function fn2(ctx, next) {\n  ctx.stack.push(\'fn2-start\');\n  await next();\n  ctx.stack.push(\'fn2-end\');\n}`\nAfter `await middlewares(fn1, fn2)({ stack: [] })`, the stack should be:\n`[\'fn1-start\', \'fn2-start\', \'fn2-end\', \'fn1-end\']`.',
+      output: '`[\'fn1-start\', \'fn2-start\', \'fn2-end\', \'fn1-end\']`',
+    }
+  ],
   points: [
     '`...fns` (Function[]): Middleware functions to compose in order.',
     'Each middleware receives `(context, next)`.',

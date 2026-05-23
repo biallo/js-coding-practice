@@ -6,8 +6,17 @@ export const makeCounter2Problem: PracticeProblem = {
   id: 'makeCounter2',
   title: 'Make Counter II',
   difficulty: 'Easy',
-  description:
-    'Implement `createCounter(init)`, which accepts an initial integer and returns an object with three methods.\n\n`increment()` increases the current value by `1` and returns the new value. `decrement()` decreases the current value by `1` and returns the new value. `reset()` sets the current value back to the original `init` value and returns it.\n\nThe returned methods should share counter state through closure variables.\n\nExamples:\n`const counter = createCounter(5);`\n`counter.increment()` returns `6`.\n`counter.reset()` returns `5`.\n`counter.decrement()` returns `4`.\n\n`const counter = createCounter(0);`\n`counter.increment()` returns `1`.\n`counter.increment()` returns `2`.\n`counter.decrement()` returns `1`.\n`counter.reset()` returns `0`.\n`counter.reset()` returns `0`.',
+  description: 'Implement `createCounter(init)`, which accepts an initial integer and returns an object with three methods.\n\n`increment()` increases the current value by `1` and returns the new value. `decrement()` decreases the current value by `1` and returns the new value. `reset()` sets the current value back to the original `init` value and returns it.\n\nThe returned methods should share counter state through closure variables.',
+  examples: [
+    {
+      input: '`const counter = createCounter(5);`\n`counter.increment()` returns `6`.\n`counter.reset()` returns `5`.\n`counter.decrement()`',
+      output: '`4`',
+    },
+    {
+      input: '`const counter = createCounter(0);`\n`counter.increment()` returns `1`.\n`counter.increment()` returns `2`.\n`counter.decrement()` returns `1`.\n`counter.reset()` returns `0`.\n`counter.reset()`',
+      output: '`0`',
+    }
+  ],
   points: [
     '`init` (number): Initial integer value for the counter.',
     'Return an object containing `increment`, `decrement`, and `reset` methods.',

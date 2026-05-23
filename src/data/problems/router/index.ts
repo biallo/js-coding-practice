@@ -6,8 +6,13 @@ export const routerProblem: PracticeProblem = {
   id: 'router',
   title: 'Router',
   difficulty: 'Medium',
-  description:
-    'Implement a small client-side router.\n\n`createRouter(routes)` receives route objects shaped like `{ path, handler }`. It should return an object with `start`, `push`, `replace`, `back`, `listen`, and `getCurrentPath`.\n\nWhen the current path changes, find the matching route and call its handler with `{ path, params }`. Support dynamic route segments like `/users/:id`. `listen(listener)` should subscribe to navigation changes and return an unsubscribe function.\n\nExamples:\n`const router = createRouter([{ path: "/users/:id", handler: ({ params }) => params.id }]);`\n`router.push("/users/42")` should match the route and provide `{ id: "42" }`.',
+  description: 'Implement a small client-side router.\n\n`createRouter(routes)` receives route objects shaped like `{ path, handler }`. It should return an object with `start`, `push`, `replace`, `back`, `listen`, and `getCurrentPath`.\n\nWhen the current path changes, find the matching route and call its handler with `{ path, params }`. Support dynamic route segments like `/users/:id`. `listen(listener)` should subscribe to navigation changes and return an unsubscribe function.',
+  examples: [
+    {
+      input: '`const router = createRouter([{ path: "/users/:id", handler: ({ params }) => params.id }]);`\n`router.push("/users/42")` should match the route and provide `{ id: "42" }`.',
+      output: 'The `/users/:id` handler receives `params.id === "42"`',
+    }
+  ],
   points: [
     '`routes`: Array of `{ path, handler }` route definitions.',
     'Support `push(path)`, `replace(path)`, and `back()` navigation.',

@@ -8,8 +8,17 @@ export const cycleProblem: PracticeProblem = {
   id: 'cycle',
   title: 'Cycle',
   difficulty: 'Easy',
-  description:
-    'Implement `cycle(...values)`, which takes one or more values and returns a function. Each time the returned function is called, it should return the next value from the original arguments. After returning the last value, it should cycle back to the first value.\n\nThe returned function should remember its current position between calls using closure state. If only one value is provided, every call should return that value.\n\nExamples:\n`const helloFn = cycle(\'hello\');`\n`helloFn()` returns `\'hello\'`.\n`helloFn()` returns `\'hello\'`.\n\n`const onOffFn = cycle(\'on\', \'off\');`\n`onOffFn()` returns `\'on\'`.\n`onOffFn()` returns `\'off\'`.\n`onOffFn()` returns `\'on\'`.',
+  description: 'Implement `cycle(...values)`, which takes one or more values and returns a function. Each time the returned function is called, it should return the next value from the original arguments. After returning the last value, it should cycle back to the first value.\n\nThe returned function should remember its current position between calls using closure state. If only one value is provided, every call should return that value.',
+  examples: [
+    {
+      input: '`const helloFn = cycle(\'hello\');`\n`helloFn()` returns `\'hello\'`.\n`helloFn()`',
+      output: '`\'hello\'`',
+    },
+    {
+      input: '`const onOffFn = cycle(\'on\', \'off\');`\n`onOffFn()` returns `\'on\'`.\n`onOffFn()` returns `\'off\'`.\n`onOffFn()`',
+      output: '`\'on\'`',
+    }
+  ],
   points: [
     '`...values` (Array): One or more values to cycle through.',
     'Return a function that produces the next value on every call.',

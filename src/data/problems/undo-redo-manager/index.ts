@@ -8,8 +8,13 @@ export const undoRedoManagerProblem: PracticeProblem = {
   id: 'undoRedoManager',
   title: 'Undo / Redo Manager',
   difficulty: 'Medium',
-  description:
-    'Undo and redo functionality is common in text editors, drawing tools, settings panels, and multi-step workflows. Implement a reusable `UndoRedoManager` class that stores a history of values and can move backward and forward through that history.\n\n`new UndoRedoManager(initialValue)` should create a manager with `initialValue` as the first history entry. Each instance should have isolated history. Values should be stored as-is; you do not need to deep clone them.\n\nThe manager should support `getCurrent()`, `set(value)`, `undo()`, `redo()`, `reset()`, `canUndo()`, and `canRedo()`. Calling `set()` after one or more `undo()` calls should discard all redo history before appending the new value. Calling `set()` with the same value as the current value should still create a new history step.\n\nExample:\n`const manager = new UndoRedoManager(0);`\nAfter `manager.set(1); manager.set(2); manager.undo();`, `manager.getCurrent()` returns `1` and `manager.canRedo()` returns `true`.\nAfter `manager.redo();`, `manager.getCurrent()` returns `2`.\nAfter `manager.undo(); manager.set(10);`, `manager.canRedo()` returns `false`.\nAfter `manager.reset();`, `manager.getCurrent()` returns `0`.',
+  description: 'Undo and redo functionality is common in text editors, drawing tools, settings panels, and multi-step workflows. Implement a reusable `UndoRedoManager` class that stores a history of values and can move backward and forward through that history.\n\n`new UndoRedoManager(initialValue)` should create a manager with `initialValue` as the first history entry. Each instance should have isolated history. Values should be stored as-is; you do not need to deep clone them.\n\nThe manager should support `getCurrent()`, `set(value)`, `undo()`, `redo()`, `reset()`, `canUndo()`, and `canRedo()`. Calling `set()` after one or more `undo()` calls should discard all redo history before appending the new value. Calling `set()` with the same value as the current value should still create a new history step.',
+  examples: [
+    {
+      input: '`const manager = new UndoRedoManager(0);`\nAfter `manager.set(1); manager.set(2); manager.undo();`:\n`manager.getCurrent()` returns `1` and `manager.canRedo()` returns `true`.\nAfter `manager.redo();`, `manager.getCurrent()` returns `2`.\nAfter `manager.undo(); manager.set(10);`, `manager.canRedo()` returns `false`.\nAfter `manager.reset();`, `manager.getCurrent()`',
+      output: '`0`',
+    }
+  ],
   points: [
     '`new UndoRedoManager(initialValue)`: Seeds history with the initial value.',
     '`getCurrent()`: Returns the current value in history.',

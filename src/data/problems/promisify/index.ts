@@ -8,8 +8,17 @@ export const promisifyProblem: PracticeProblem = {
   id: 'promisify',
   title: 'Promisify',
   difficulty: 'Medium',
-  description:
-    'Implement `promisify(fn)`, which converts an error-first callback function into a function that returns a Promise.\n\nThe original function should be called with all provided arguments plus a final callback. That callback receives `(error, result)`. If `error` is truthy, reject the Promise with the error. Otherwise, resolve the Promise with the result.\n\nThe returned function should preserve the caller\'s `this` value when invoking the original function.\n\nExample:\n`function readValue(id, callback) { callback(null, id * 2); }`\n`const readValueAsync = promisify(readValue);`\n`await readValueAsync(21)` resolves to `42`.\n\n`function fail(callback) { callback(new Error(\'Failed\')); }`\n`await promisify(fail)()` rejects with that error.',
+  description: 'Implement `promisify(fn)`, which converts an error-first callback function into a function that returns a Promise.\n\nThe original function should be called with all provided arguments plus a final callback. That callback receives `(error, result)`. If `error` is truthy, reject the Promise with the error. Otherwise, resolve the Promise with the result.\n\nThe returned function should preserve the caller\'s `this` value when invoking the original function.',
+  examples: [
+    {
+      input: '`function readValue(id, callback) {\n  callback(null, id * 2);\n}`\n`const readValueAsync = promisify(readValue);`\n`await readValueAsync(21)`',
+      output: '`42`',
+    },
+    {
+      input: '`function fail(callback) {\n  callback(new Error(\'Failed\'));\n}`\n`await promisify(fail)()`',
+      output: 'that error',
+    }
+  ],
   points: [
     '`fn` (Function): A callback-based function whose last argument is an error-first callback.',
     'Return a function that returns a Promise.',

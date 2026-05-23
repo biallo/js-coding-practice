@@ -6,8 +6,17 @@ export const generateFibonacciSequenceProblem: PracticeProblem = {
   id: 'generateFibonacciSequence',
   title: 'Generate Fibonacci Sequence',
   difficulty: 'Easy',
-  description:
-    'Write a generator function `fibGenerator()` that returns a generator object yielding the Fibonacci sequence.\n\nThe Fibonacci sequence is defined by `Xn = Xn-1 + Xn-2`. The first few numbers are `0, 1, 1, 2, 3, 5, 8, 13`.\n\nEach call to `gen.next().value` should return the next number in the sequence.\n\nExamples:\n`const gen = fibGenerator();`\n`gen.next().value` returns `0`.\n`gen.next().value` returns `1`.\n`gen.next().value` returns `1`.\n`gen.next().value` returns `2`.\n`gen.next().value` returns `3`.\n\nIf `gen.next()` is never called, no values are produced.',
+  description: 'Write a generator function `fibGenerator()` that returns a generator object yielding the Fibonacci sequence.\n\nThe Fibonacci sequence is defined by `Xn = Xn-1 + Xn-2`. The first few numbers are `0, 1, 1, 2, 3, 5, 8, 13`.\n\nEach call to `gen.next().value` should return the next number in the sequence.',
+  examples: [
+    {
+      input: '`const gen = fibGenerator();`\n`gen.next().value` returns `0`.\n`gen.next().value` returns `1`.\n`gen.next().value` returns `1`.\n`gen.next().value` returns `2`.\n`gen.next().value`',
+      output: '`3`',
+    },
+    {
+      input: 'If `gen.next()` is never called, no values are produced.',
+      output: 'The generator remains lazy until iteration starts',
+    }
+  ],
   points: [
     'Implement `fibGenerator` as a generator function.',
     'Yield `0` first, then `1`.',

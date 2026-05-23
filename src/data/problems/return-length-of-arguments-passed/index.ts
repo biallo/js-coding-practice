@@ -6,8 +6,21 @@ export const returnLengthOfArgumentsPassedProblem: PracticeProblem = {
   id: 'returnLengthOfArgumentsPassed',
   title: 'Return Length of Arguments Passed',
   difficulty: 'Easy',
-  description:
-    'Write a function `argumentsLength` that returns the number of arguments passed to it.\n\nThe function can receive any number of values of any type. It should count exactly how many arguments were provided, including values such as `null`, `undefined`, arrays, and objects.\n\nExamples:\n`argumentsLength(5)` returns `1`.\n`argumentsLength({}, null, "3")` returns `3`.\n`argumentsLength()` returns `0`.',
+  description: 'Write a function `argumentsLength` that returns the number of arguments passed to it.\n\nThe function can receive any number of values of any type. It should count exactly how many arguments were provided, including values such as `null`, `undefined`, arrays, and objects.',
+  examples: [
+    {
+      input: '`argumentsLength(5)`',
+      output: '`1`',
+    },
+    {
+      input: '`argumentsLength({}, null, "3")`',
+      output: '`3`',
+    },
+    {
+      input: '`argumentsLength()`',
+      output: '`0`',
+    }
+  ],
   points: [
     '`...args` (any[]): Values passed to the function.',
     'Accept any number of arguments.',

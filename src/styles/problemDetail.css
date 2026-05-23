@@ -85,7 +85,90 @@
   color: var(--inline-code-text);
   font-family: var(--mono);
   font-size: 0.92em;
+  overflow-wrap: anywhere;
   padding: 1px 5px;
+}
+
+.examples-block {
+  display: grid;
+  gap: 10px;
+}
+
+.examples-block h4 {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.example-list {
+  display: grid;
+  gap: 10px;
+}
+
+.example-card {
+  display: grid;
+  gap: 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--surface) 78%, white);
+  padding: 14px;
+}
+
+.example-card h5 {
+  margin: 0;
+  color: var(--text-strong);
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.example-card dl {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+
+.example-card dl div {
+  display: grid;
+  gap: 3px;
+}
+
+.example-card dt {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.example-card dd {
+  margin: 0;
+  color: var(--text);
+  overflow-wrap: anywhere;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.example-code-block {
+  max-width: 100%;
+  overflow-x: hidden;
+  border: 1px solid var(--inline-code-border);
+  border-radius: 6px;
+  background: var(--inline-code-bg);
+  margin: 0;
+  padding: 9px 10px;
+}
+
+.example-code-block code {
+  display: block;
+  color: var(--inline-code-text);
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
 }
 
 .requirements-block {

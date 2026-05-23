@@ -8,8 +8,13 @@ export const undoRedoManager2Problem: PracticeProblem = {
   id: 'undoRedoManager2',
   title: 'Undo / Redo Manager II',
   difficulty: 'Hard',
-  description:
-    'Implement an advanced `UndoRedoManager` that supports live uncommitted changes. This version separates temporary `set()` updates from committed history entries.\n\n`new UndoRedoManager(initialValue)` should create a manager with `initialValue` as the first committed value. Calling `set(value)` updates the current live value but does not immediately add a history entry. Calling `commit()` should commit the latest live value as one new history entry. Multiple `set()` calls before one `commit()` should create only one undo step.\n\nCalling `undo()` while there is an uncommitted live value should discard that live value and return to the latest committed value. Calling `set()` after undoing should discard redo history. Values should be stored as-is; no deep clone is required.\n\nThe manager should support `getCurrent()`, `set(value)`, `commit()`, `undo()`, `redo()`, `reset()`, `canUndo()`, and `canRedo()`.\n\nExample:\n`const manager = new UndoRedoManager(0);`\nAfter `manager.set(1); manager.set(2);`, `manager.getCurrent()` returns `2`, but `manager.canUndo()` is only undoing the live draft.\nAfter `manager.commit(); manager.undo();`, `manager.getCurrent()` returns `0`.\nAfter `manager.redo();`, `manager.getCurrent()` returns `2`.',
+  description: 'Implement an advanced `UndoRedoManager` that supports live uncommitted changes. This version separates temporary `set()` updates from committed history entries.\n\n`new UndoRedoManager(initialValue)` should create a manager with `initialValue` as the first committed value. Calling `set(value)` updates the current live value but does not immediately add a history entry. Calling `commit()` should commit the latest live value as one new history entry. Multiple `set()` calls before one `commit()` should create only one undo step.\n\nCalling `undo()` while there is an uncommitted live value should discard that live value and return to the latest committed value. Calling `set()` after undoing should discard redo history. Values should be stored as-is; no deep clone is required.\n\nThe manager should support `getCurrent()`, `set(value)`, `commit()`, `undo()`, `redo()`, `reset()`, `canUndo()`, and `canRedo()`.',
+  examples: [
+    {
+      input: '`const manager = new UndoRedoManager(0);`\nAfter `manager.set(1); manager.set(2);`:\n`manager.getCurrent()` returns `2`, but `manager.canUndo()` is only undoing the live draft.\nAfter `manager.commit(); manager.undo();`, `manager.getCurrent()` returns `0`.\nAfter `manager.redo();`, `manager.getCurrent()`',
+      output: '`2`',
+    }
+  ],
   points: [
     '`new UndoRedoManager(initialValue)`: Seeds committed history with the initial value.',
     '`set(value)`: Updates the current live value without committing a new history entry.',

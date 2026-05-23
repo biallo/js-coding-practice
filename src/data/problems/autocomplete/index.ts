@@ -6,8 +6,13 @@ export const autocompleteProblem: PracticeProblem = {
   id: 'autocomplete',
   title: 'Autocomplete',
   difficulty: 'Hard',
-  description:
-    'Implement `createAutocomplete(searcher, options)` for an autocomplete input.\n\nThe returned object should expose `search(query)`. Calls should be debounced by `options.debounceMs`. Results should be cached by query when `options.cache` is `true`. If multiple requests are in flight and an older request resolves after a newer one, ignore the stale response by rejecting it with `"Stale response"`.\n\nThis models a common frontend interview problem: debounce user input, avoid duplicate network work, cache results, and prevent out-of-order responses from showing stale suggestions.\n\nExamples:\n`const autocomplete = createAutocomplete(fetchSuggestions, { debounceMs: 100, cache: true });`\n`autocomplete.search("rea")` waits for the debounce, calls `fetchSuggestions("rea")`, and resolves with suggestions.',
+  description: 'Implement `createAutocomplete(searcher, options)` for an autocomplete input.\n\nThe returned object should expose `search(query)`. Calls should be debounced by `options.debounceMs`. Results should be cached by query when `options.cache` is `true`. If multiple requests are in flight and an older request resolves after a newer one, ignore the stale response by rejecting it with `"Stale response"`.\n\nThis models a common frontend interview problem: debounce user input, avoid duplicate network work, cache results, and prevent out-of-order responses from showing stale suggestions.',
+  examples: [
+    {
+      input: '`const autocomplete = createAutocomplete(fetchSuggestions, { debounceMs: 100, cache: true });`\n`autocomplete.search("rea")` waits for the debounce, calls `fetchSuggestions("rea")`, and resolves with suggestions.',
+      output: 'The search resolves with the suggestions returned for `"rea"`',
+    }
+  ],
   points: [
     '`searcher(query)`: Async function returning suggestions.',
     '`debounceMs`: Delay before starting a request.',

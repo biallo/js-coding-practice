@@ -6,8 +6,17 @@ export const queryStringParserProblem: PracticeProblem = {
   id: 'queryStringParser',
   title: 'Query String Parser',
   difficulty: 'Medium',
-  description:
-    'Implement `parseQuery(query)` and `stringifyQuery(params)`.\n\n`parseQuery` should convert a query string into an object. It should handle an optional leading `?`, URL decoding, repeated keys as arrays, and empty values.\n\n`stringifyQuery` should convert an object back into a query string. Array values should generate repeated keys. `null` and `undefined` values should be skipped.\n\nExamples:\n`parseQuery("?q=react&page=2&tag=js&tag=ts")` returns `{ q: "react", page: "2", tag: ["js", "ts"] }`.\n`stringifyQuery({ q: "react", tag: ["js", "ts"] })` returns `"q=react&tag=js&tag=ts"`.',
+  description: 'Implement `parseQuery(query)` and `stringifyQuery(params)`.\n\n`parseQuery` should convert a query string into an object. It should handle an optional leading `?`, URL decoding, repeated keys as arrays, and empty values.\n\n`stringifyQuery` should convert an object back into a query string. Array values should generate repeated keys. `null` and `undefined` values should be skipped.',
+  examples: [
+    {
+      input: '`parseQuery("?q=react&page=2&tag=js&tag=ts")`',
+      output: '`{ q: "react", page: "2", tag: ["js", "ts"] }`',
+    },
+    {
+      input: '`stringifyQuery({ q: "react", tag: ["js", "ts"] })`',
+      output: '`"q=react&tag=js&tag=ts"`',
+    }
+  ],
   points: [
     'Ignore a leading `?` when parsing.',
     'Decode keys and values with URL decoding.',

@@ -8,8 +8,25 @@ export const meanProblem: PracticeProblem = {
   id: 'mean',
   title: 'Mean',
   difficulty: 'Easy',
-  description:
-    'Implement `mean(array)`, which returns the mean, also known as the average, of the values inside an array of numbers.\n\nThe mean is calculated by summing all numbers and dividing the total by the number of items. If the array is empty, return `NaN`.\n\nExamples:\n`mean([4, 2, 8, 6])` returns `5`.\n`mean([1, 2, 3, 4])` returns `2.5`.\n`mean([1, 2, 2])` returns `1.6666666666666667`.\n`mean([])` returns `NaN`.',
+  description: 'Implement `mean(array)`, which returns the mean, also known as the average, of the values inside an array of numbers.\n\nThe mean is calculated by summing all numbers and dividing the total by the number of items. If the array is empty, return `NaN`.',
+  examples: [
+    {
+      input: '`mean([4, 2, 8, 6])`',
+      output: '`5`',
+    },
+    {
+      input: '`mean([1, 2, 3, 4])`',
+      output: '`2.5`',
+    },
+    {
+      input: '`mean([1, 2, 2])`',
+      output: '`1.6666666666666667`',
+    },
+    {
+      input: '`mean([])`',
+      output: '`NaN`',
+    }
+  ],
   points: [
     '`array` (number[]): Array of numbers.',
     'Sum every value in the array.',

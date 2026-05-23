@@ -8,8 +8,17 @@ export const htmlSanitizerProblem: PracticeProblem = {
   id: 'htmlSanitizer',
   title: 'HTML Sanitizer',
   difficulty: 'Medium',
-  description:
-    'Implement `sanitizeHTML(input)`, a simplified HTML sanitizer inspired by the browser HTML Sanitizer API.\n\nParse the input string into a detached DOM tree, sanitize that tree, and return the resulting HTML string. Remove the element subtrees `script`, `iframe`, `object`, and `embed`. Remove all HTML comment nodes. Remove any attribute whose name starts with `on`. Remove `href` and `src` attributes whose trimmed, case-insensitive value starts with `javascript:`. Preserve all other parsed HTML.\n\nExamples:\n`sanitizeHTML(\'<p>Hello <strong>world</strong></p>\')` returns `\'<p>Hello <strong>world</strong></p>\'`.\n`sanitizeHTML(\'<div><!-- secret --><a href=\" javascript:alert(1) \" onclick=\"evil()\">Click me</a><script>alert(1)</script></div>\')` returns `\'<div><a>Click me</a></div>\'`.',
+  description: 'Implement `sanitizeHTML(input)`, a simplified HTML sanitizer inspired by the browser HTML Sanitizer API.\n\nParse the input string into a detached DOM tree, sanitize that tree, and return the resulting HTML string. Remove the element subtrees `script`, `iframe`, `object`, and `embed`. Remove all HTML comment nodes. Remove any attribute whose name starts with `on`. Remove `href` and `src` attributes whose trimmed, case-insensitive value starts with `javascript:`. Preserve all other parsed HTML.',
+  examples: [
+    {
+      input: '`sanitizeHTML(\'<p>Hello <strong>world</strong></p>\')`',
+      output: '`\'<p>Hello <strong>world</strong></p>\'`',
+    },
+    {
+      input: '`sanitizeHTML(\n  \'<div><!-- secret --><a href=" javascript:alert(1) " onclick="evil()">Click me</a><script>alert(1)</script></div>\',\n)`',
+      output: '`\'<div><a>Click me</a></div>\'`',
+    }
+  ],
   points: [
     '`input` (string): The HTML string to sanitize.',
     'Parse into a detached DOM tree before traversing.',

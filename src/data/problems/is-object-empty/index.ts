@@ -6,8 +6,25 @@ export const isObjectEmptyProblem: PracticeProblem = {
   id: 'isObjectEmpty',
   title: 'Is Object Empty',
   difficulty: 'Easy',
-  description:
-    'Given an object or an array, return whether it is empty.\n\nAn empty object contains no key-value pairs. An empty array contains no elements. You may assume the input is a valid JSON object or array, such as a value returned by `JSON.parse`.\n\nExamples:\n`isEmpty({ x: 5, y: 42 })` returns `false`.\n`isEmpty({})` returns `true`.\n`isEmpty([null, false, 0])` returns `false`.\n`isEmpty([])` returns `true`.',
+  description: 'Given an object or an array, return whether it is empty.\n\nAn empty object contains no key-value pairs. An empty array contains no elements. You may assume the input is a valid JSON object or array, such as a value returned by `JSON.parse`.',
+  examples: [
+    {
+      input: '`isEmpty({ x: 5, y: 42 })`',
+      output: '`false`',
+    },
+    {
+      input: '`isEmpty({})`',
+      output: '`true`',
+    },
+    {
+      input: '`isEmpty([null, false, 0])`',
+      output: '`false`',
+    },
+    {
+      input: '`isEmpty([])`',
+      output: '`true`',
+    }
+  ],
   points: [
     '`obj` (Object | Array): A valid JSON object or array.',
     'Return `true` for objects with no key-value pairs.',

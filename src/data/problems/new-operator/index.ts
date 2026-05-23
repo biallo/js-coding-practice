@@ -6,8 +6,21 @@ export const newOperatorProblem: PracticeProblem = {
   id: 'newOperator',
   title: 'New Operator',
   difficulty: 'Medium',
-  description:
-    'Implement a function `myNew(Constructor, ...args)` that behaves like JavaScript\'s `new` operator.\n\nThe function should create a new object whose prototype is `Constructor.prototype`, call `Constructor` with that object as `this`, and return the correct final value.\n\nIf the constructor returns an object or function, that returned value should be used. If it returns a primitive value or returns nothing, the newly-created object should be used.\n\nExamples:\n`function User(name) { this.name = name; }`\n`myNew(User, "Ada").name` returns `"Ada"`.\n\n`function Factory() { this.a = 1; return { b: 2 }; }`\n`myNew(Factory)` returns `{ b: 2 }`.\n\n`function Primitive() { this.a = 1; return 2; }`\n`myNew(Primitive).a` returns `1`.',
+  description: 'Implement a function `myNew(Constructor, ...args)` that behaves like JavaScript\'s `new` operator.\n\nThe function should create a new object whose prototype is `Constructor.prototype`, call `Constructor` with that object as `this`, and return the correct final value.\n\nIf the constructor returns an object or function, that returned value should be used. If it returns a primitive value or returns nothing, the newly-created object should be used.',
+  examples: [
+    {
+      input: '`function User(name) {\n  this.name = name;\n}`\n`myNew(User, "Ada").name`',
+      output: '`"Ada"`',
+    },
+    {
+      input: '`function Factory() {\n  this.a = 1;\n  return { b: 2 };\n}`\n`myNew(Factory)`',
+      output: '`{ b: 2 }`',
+    },
+    {
+      input: '`function Primitive() {\n  this.a = 1;\n  return 2;\n}`\n`myNew(Primitive).a`',
+      output: '`1`',
+    }
+  ],
   points: [
     '`Constructor` (Function): The constructor to invoke.',
     '`...args`: Arguments passed to the constructor.',
