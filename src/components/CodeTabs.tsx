@@ -10,8 +10,8 @@ const languageTabs: Array<{
   language: CodeLanguage
   extension: string
 }> = [
-  { label: 'JavaScript', language: 'javascript', extension: '.js' },
-  { label: 'TypeScript', language: 'typescript', extension: '.ts' },
+  { label: 'JS', language: 'javascript', extension: '.js' },
+  { label: 'TS', language: 'typescript', extension: '.ts' },
 ];
 
 type CodeTabsProps = {

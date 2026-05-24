@@ -137,15 +137,16 @@
 .title-language-tabs button {
   display: inline-flex;
   align-items: baseline;
+  justify-content: center;
   gap: 7px;
-  min-width: 118px;
+  min-width: 46px;
   border: 0;
   border-radius: 6px;
   background: transparent;
   color: var(--code-muted);
   cursor: pointer;
   font-weight: 700;
-  padding: 7px 10px;
+  padding: 4px 10px;
 }
 
 .title-language-tabs button.active {
@@ -263,19 +264,17 @@
   }
 
   .code-title {
-    align-items: stretch;
+    align-items: start;
     flex-direction: column;
   }
 
   .title-language-tabs {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    width: 100%;
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr;
   }
 
   .title-language-tabs button {
     justify-content: center;
-    min-width: 0;
   }
 
   .code-panel pre {
