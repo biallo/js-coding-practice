@@ -7,7 +7,7 @@ export function isFunction(value) {
 }
 
 export function isObject(value) {
-  return value !== null && value !== undefined && (
+  return value !== null && (
     typeof value === 'object' ||
     typeof value === 'function'
   );
