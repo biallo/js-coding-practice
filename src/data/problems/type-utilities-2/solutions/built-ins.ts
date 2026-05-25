@@ -7,7 +7,7 @@ export function isFunction(value: unknown): value is (...args: unknown[]) => unk
 }
 
 export function isObject(value: unknown): value is object {
-  return value !== null && value !== undefined && (
+  return value !== null && (
     typeof value === 'object' ||
     typeof value === 'function'
   );
