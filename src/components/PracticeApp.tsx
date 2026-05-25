@@ -5,6 +5,7 @@ import { ProblemDetail } from './ProblemDetail';
 import { ProblemSidebar } from './ProblemSidebar';
 
 const selectedProblemStorageKey = 'js-coding-practice:selected-problem';
+const completedProblemsStorageKey = 'js-coding-practice:completed-problems';
 
 function getInitialSelectedId() {
   const fallbackId = problems[0]?.id ?? '';
@@ -23,8 +24,30 @@ function getInitialSelectedId() {
   }
 }
 
+function getInitialCompletedIds() {
+  if (typeof window === 'undefined') {
+    return [];
+  }
+
+  try {
+    const storedIds = window.localStorage.getItem(completedProblemsStorageKey);
+    const parsedIds: unknown = storedIds ? JSON.parse(storedIds) : [];
+
+    if (!Array.isArray(parsedIds)) {
+      return [];
+    }
+
+    return parsedIds.filter((id): id is string =>
+      typeof id === 'string' && problems.some((problem) => problem.id === id),
+    );
+  } catch {
+    return [];
+  }
+}
+
 export function PracticeApp() {
   const [selectedId, setSelectedId] = useState(getInitialSelectedId);
+  const [completedIds, setCompletedIds] = useState(getInitialCompletedIds);
   const [searchQuery, setSearchQuery] = useState('');
 
   const filteredProblems = useMemo(() => {
@@ -52,6 +75,13 @@ export function PracticeApp() {
   );
 
   const selectedProblemId = selectedProblem?.id;
+  const completedProblemIds = useMemo(() => new Set(completedIds), [completedIds]);
+
+  const handleCompleteProblem = (id: string) => {
+    setCompletedIds((currentIds) =>
+      currentIds.includes(id) ? currentIds : [...currentIds, id],
+    );
+  };
 
   useEffect(() => {
     if (!selectedProblemId) {
@@ -65,6 +95,17 @@ export function PracticeApp() {
     }
   }, [selectedProblemId]);
 
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(
+        completedProblemsStorageKey,
+        JSON.stringify(completedIds),
+      );
+    } catch {
+      // Ignore storage failures so marking completion still works for this session.
+    }
+  }, [completedIds]);
+
   if (!selectedProblem) {
     return <EmptyState />;
   }
@@ -72,6 +113,7 @@ export function PracticeApp() {
   return (
     <main className="practice-shell">
       <ProblemSidebar
+        completedIds={completedProblemIds}
         onSearchChange={setSearchQuery}
         onSelect={setSelectedId}
         problems={filteredProblems}
@@ -79,7 +121,11 @@ export function PracticeApp() {
         selectedId={selectedProblem.id}
         totalProblemCount={problems.length}
       />
-      <ProblemDetail problem={selectedProblem} />
+      <ProblemDetail
+        isCompleted={completedProblemIds.has(selectedProblem.id)}
+        onComplete={handleCompleteProblem}
+        problem={selectedProblem}
+      />
     </main>
   );
 }

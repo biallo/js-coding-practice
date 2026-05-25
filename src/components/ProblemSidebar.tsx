@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import type { PracticeProblem } from '../data/problemTypes';
 
 type ProblemSidebarProps = {
+  completedIds: ReadonlySet<string>
   problems: PracticeProblem[]
   searchQuery: string
   selectedId: string
@@ -11,6 +12,7 @@ type ProblemSidebarProps = {
 }
 
 export function ProblemSidebar({
+  completedIds,
   problems,
   searchQuery,
   selectedId,
@@ -78,25 +80,42 @@ export function ProblemSidebar({
 
       <nav className="problem-list scroll-area" aria-label="Problems" ref={listRef}>
         {problems.length > 0 ? (
-          problems.map((problem, index) => (
-            <button
-              className={problem.id === selectedId ? 'active' : ''}
-              key={problem.id}
-              onClick={() => onSelect(problem.id)}
-              ref={problem.id === selectedId ? selectedButtonRef : undefined}
-              type="button"
-            >
-              <span className="problem-index">
-                {String(index + 1).padStart(2, '0')}
-              </span>
-              <span>
-                <strong>{problem.title}</strong>
-                <small className={`difficulty-text difficulty-${problem.difficulty.toLowerCase()}`}>
-                  {problem.difficulty}
-                </small>
-              </span>
-            </button>
-          ))
+          problems.map((problem, index) => {
+            const isCompleted = completedIds.has(problem.id);
+
+            return (
+              <button
+                className={problem.id === selectedId ? 'active' : ''}
+                key={problem.id}
+                onClick={() => onSelect(problem.id)}
+                ref={problem.id === selectedId ? selectedButtonRef : undefined}
+                type="button"
+              >
+                <span className="problem-index">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <span>
+                  <strong>{problem.title}</strong>
+                  <span className="problem-meta">
+                    <small className={`difficulty-text difficulty-${problem.difficulty.toLowerCase()}`}>
+                      {problem.difficulty}
+                    </small>
+                  </span>
+                </span>
+                <span className="problem-complete-slot">
+                  {isCompleted ? (
+                    <span
+                      aria-label="已完成"
+                      className="problem-complete-icon"
+                      title="已完成"
+                    >
+                      ✓
+                    </span>
+                  ) : null}
+                </span>
+              </button>
+            );
+          })
         ) : (
           <div className="problem-list-empty">
             <strong>No matches</strong>
@@ -115,6 +134,7 @@ export function ProblemSidebar({
           {problems.map((problem, index) => (
             <option key={problem.id} value={problem.id}>
               {String(index + 1).padStart(2, '0')} - {problem.title}
+              {completedIds.has(problem.id) ? ' - 已完成' : ''}
             </option>
           ))}
         </select>

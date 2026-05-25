@@ -8,9 +8,15 @@ const CodeTabs = lazy(() =>
 
 type ProblemDetailProps = {
   problem: PracticeProblem
+  isCompleted: boolean
+  onComplete: (id: string) => void
 }
 
-export function ProblemDetail({ problem }: ProblemDetailProps) {
+export function ProblemDetail({
+  isCompleted,
+  onComplete,
+  problem,
+}: ProblemDetailProps) {
   const detailRef = useRef<HTMLElement>(null);
   const difficultyClass = `difficulty difficulty-${problem.difficulty.toLowerCase()}`;
 
@@ -22,7 +28,12 @@ export function ProblemDetail({ problem }: ProblemDetailProps) {
     <section className="problem-detail scroll-area" ref={detailRef}>
       <header className="detail-header">
         <h2>{problem.title}</h2>
-        <span className={difficultyClass}>{problem.difficulty}</span>
+        <div className="detail-status">
+          <span className={difficultyClass}>{problem.difficulty}</span>
+          {isCompleted ? (
+            <span className="detail-complete-badge">已完成</span>
+          ) : null}
+        </div>
       </header>
 
       <section className="prompt-section" aria-labelledby="prompt-title">
@@ -83,6 +94,17 @@ export function ProblemDetail({ problem }: ProblemDetailProps) {
       >
         <CodeTabs key={problem.id} solutions={problem.solutions} />
       </Suspense>
+
+      <div className="completion-actions">
+        <button
+          className="completion-button"
+          disabled={isCompleted}
+          onClick={() => onComplete(problem.id)}
+          type="button"
+        >
+          {isCompleted ? '已完成' : '标记完成'}
+        </button>
+      </div>
     </section>
   );
 }
