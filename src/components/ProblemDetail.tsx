@@ -102,7 +102,7 @@ export function ProblemDetail({
           onClick={() => onComplete(problem.id)}
           type="button"
         >
-          {isCompleted ? '已完成' : '标记完成'}
+          {isCompleted ? 'Completed' : 'Mark Complete'}
         </button>
       </div>
     </section>
