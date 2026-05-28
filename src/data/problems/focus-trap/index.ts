@@ -7,7 +7,7 @@ export const focusTrapProblem: PracticeProblem = {
   title: 'Focus Trap',
   difficulty: 'Hard',
   description:
-    'Implement `createFocusTrap(container, options)` for modal and popover accessibility.\n\nThe returned object should expose `activate()` and `deactivate()`. When active, focus should stay inside `container` when the user presses `Tab` or `Shift+Tab`. Pressing `Escape` should call `options.onEscape` when provided. When activated, remember the previously focused element and move focus to the first focusable element inside the container. When deactivated, remove listeners and restore previous focus.\n\nThis is a common component-library interview problem.',
+    'Implement `createFocusTrap(container, options)` for modal and popover accessibility.\n\nThe returned object should expose `activate()` and `deactivate()`. When active, focus should stay inside `container` when the user presses `Tab` or `Shift+Tab`. Pressing `Escape` should call `options.onEscape` when provided. When activated, remember the previously focused element and move focus to the first focusable element inside the container. When deactivated, remove listeners and restore previous focus.',
   examples: [
     {
       input: 'A modal contains `firstButton` and `lastButton`. Focus is on `lastButton`, then the user presses `Tab`.',

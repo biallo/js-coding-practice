@@ -7,7 +7,7 @@ export const eventLoopOutputOrderProblem: PracticeProblem = {
   title: 'Event Loop Output Order',
   difficulty: 'Medium',
   description:
-    'Implement `getEventLoopOutput()` so it returns a promise resolving to the order in which scheduled work runs.\n\nThe function should push labels into an array using synchronous code, a resolved promise callback, `queueMicrotask`, a chained promise callback, and `setTimeout`. It should then resolve with the final output array after the macrotask has run.\n\nThe expected order is `["sync-1", "sync-2", "promise-1", "microtask", "promise-2", "timeout"]`.\n\nThis mirrors common frontend interview questions about the call stack, microtask queue, and macrotask queue.',
+    'Implement `getEventLoopOutput()` so it returns a promise resolving to the order in which scheduled work runs.\n\nThe function should push labels into an array using synchronous code, a resolved promise callback, `queueMicrotask`, a chained promise callback, and `setTimeout`. It should then resolve with the final output array after the macrotask has run.\n\nThe expected order is `["sync-1", "sync-2", "promise-1", "microtask", "promise-2", "timeout"]`.',
   examples: [
     {
       input: '`await getEventLoopOutput()`',
