@@ -31,7 +31,7 @@ export function ProblemDetail({
         <div className="detail-status">
           <span className={difficultyClass}>{problem.difficulty}</span>
           {isCompleted ? (
-            <span className="detail-complete-badge">已完成</span>
+            <span className="detail-complete-badge">Completed</span>
           ) : null}
         </div>
       </header>
